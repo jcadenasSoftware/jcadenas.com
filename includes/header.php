@@ -51,6 +51,10 @@ require_once dirname(__DIR__).'/config.php';
           $seoTitle = $pageTitle ?? 'Resume (EN) | JCadenas';
           $seoDesc  = $pageDescription ?? 'English resume, ready to print and download.';
           break;
+        case 'xpendz.php':
+          $seoTitle = $pageTitle ?? 'Xpendz | Control de Finanzas Personales';
+          $seoDesc  = $pageDescription ?? 'Controla tus gastos, ingresos, préstamos y metas financieras de forma simple y segura.';
+          break;
       }
 
       $reqPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';

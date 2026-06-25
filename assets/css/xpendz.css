@@ -1,0 +1,296 @@
+/* ============================================
+   Xpendz Landing Page - Fase 0
+   Diseño minimalista, profesional y responsive
+   Mobile First approach
+============================================ */
+
+:root {
+  --xpendz-primary: #1E6DFF;
+  --xpendz-primary-dark: #1557D6;
+  --xpendz-primary-light: #4A8FFF;
+  --xpendz-text-dark: #1a202c;
+  --xpendz-text-gray: #4a5568;
+  --xpendz-text-light: #718096;
+  --xpendz-bg-light: #f7fafc;
+  --xpendz-bg-white: #ffffff;
+  --xpendz-border: #e2e8f0;
+  --xpendz-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --xpendz-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --xpendz-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --xpendz-radius: 16px;
+  --xpendz-radius-sm: 12px;
+}
+
+/* ============================================
+   Hero Section
+============================================ */
+.xpendz-hero {
+  background: linear-gradient(135deg, #1E6DFF 0%, #4A8FFF 100%);
+  color: var(--xpendz-bg-white);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xpendz-hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.xpendz-logo-container {
+  margin-bottom: 2rem;
+}
+
+.xpendz-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
+  box-shadow: var(--xpendz-shadow-lg);
+  background: var(--xpendz-bg-white);
+  padding: 8px;
+}
+
+.xpendz-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.xpendz-subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.xpendz-description {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.xpendz-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--xpendz-bg-white);
+  color: var(--xpendz-primary);
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--xpendz-shadow-lg);
+  transition: all 0.3s ease;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.xpendz-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  color: var(--xpendz-primary-dark);
+}
+
+/* ============================================
+   Features Section
+============================================ */
+.xpendz-features {
+  padding: 5rem 1.5rem;
+  background: var(--xpendz-bg-light);
+}
+
+.xpendz-features-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--xpendz-text-dark);
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.01em;
+}
+
+.xpendz-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.xpendz-feature-card {
+  background: var(--xpendz-bg-white);
+  padding: 2rem;
+  border-radius: var(--xpendz-radius);
+  box-shadow: var(--xpendz-shadow-sm);
+  transition: all 0.3s ease;
+  border: 1px solid var(--xpendz-border);
+}
+
+.xpendz-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--xpendz-shadow-md);
+  border-color: var(--xpendz-primary-light);
+}
+
+.xpendz-feature-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--xpendz-primary) 0%, var(--xpendz-primary-light) 100%);
+  border-radius: var(--xpendz-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--xpendz-shadow-sm);
+}
+
+.xpendz-feature-icon i {
+  font-size: 1.75rem;
+  color: var(--xpendz-bg-white);
+}
+
+.xpendz-feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--xpendz-text-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.xpendz-feature-desc {
+  font-size: 0.9375rem;
+  color: var(--xpendz-text-gray);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   Footer Section
+============================================ */
+.xpendz-footer {
+  background: var(--xpendz-text-dark);
+  color: var(--xpendz-bg-white);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.xpendz-footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.xpendz-footer-copyright {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.xpendz-footer-dev {
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.xpendz-footer-dev strong {
+  font-weight: 600;
+}
+
+.xpendz-footer-contact {
+  font-size: 0.9375rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.xpendz-footer-contact a {
+  color: var(--xpendz-bg-white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.xpendz-footer-contact a:hover {
+  border-bottom-color: var(--xpendz-bg-white);
+  opacity: 1;
+}
+
+/* ============================================
+   Responsive Design - Tablet
+============================================ */
+@media (min-width: 768px) {
+  .xpendz-hero {
+    padding: 5rem 2rem;
+  }
+
+  .xpendz-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .xpendz-title {
+    font-size: 4rem;
+  }
+
+  .xpendz-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .xpendz-description {
+    font-size: 1.125rem;
+  }
+
+  .xpendz-features {
+    padding: 6rem 2rem;
+  }
+
+  .xpendz-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .xpendz-footer {
+    padding: 4rem 2rem;
+  }
+}
+
+/* ============================================
+   Responsive Design - Desktop
+============================================ */
+@media (min-width: 1024px) {
+  .xpendz-hero {
+    padding: 6rem 2rem;
+  }
+
+  .xpendz-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .xpendz-feature-card {
+    padding: 2.5rem;
+  }
+}
+
+/* ============================================
+   Accessibility
+============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .xpendz-cta-btn,
+  .xpendz-feature-card {
+    transition: none;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.xpendz-cta-btn:focus-visible,
+.xpendz-footer-contact a:focus-visible {
+  outline: 3px solid var(--xpendz-primary-light);
+  outline-offset: 4px;
+}
