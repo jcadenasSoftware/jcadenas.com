@@ -1,0 +1,32 @@
+# Configuración sensible - NO SUBIR A GITHUB
+config.local.php
+config.local.new.php
+
+# Archivos temporales de Word
+~$*.docx
+*.tmp
+*.temp
+
+# Archivos de backup
+*_backup.php
+*_debug.php
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Base de datos local (si existe)
+database/*.sql
+database/*.db

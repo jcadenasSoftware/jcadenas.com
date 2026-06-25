@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Force the canonical HTTPS domain to avoid duplicate URLs
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.jcadenas\.com$ [NC]
+RewriteRule ^ https://jcadenas.com%{REQUEST_URI} [R=301,L]
+
+RewriteRule ^sitemap\.xml$ sitemap.php [L]

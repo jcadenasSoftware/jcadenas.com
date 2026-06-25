@@ -1,0 +1,20 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /database/
+Disallow: /includes/
+Disallow: /config.local.php
+Disallow: /config.local.*
+Disallow: /config.php
+Disallow: /db.php
+Disallow: /download.php
+Disallow: /request_download.php
+Disallow: /purchase_create.php
+Disallow: /purchase_create_debug.php
+Disallow: /purchase_create_new.php
+Disallow: /purchase_create_simple.php
+Disallow: /paypal_capture.php
+Disallow: /send_mail.php
+Disallow: /contact_submit.php
+Disallow: /submit_service.php
+
+Sitemap: https://jcadenas.com/sitemap.xml

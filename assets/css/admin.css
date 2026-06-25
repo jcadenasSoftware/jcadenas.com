@@ -1,0 +1,303 @@
+/* Admin area custom styling */
+:root{
+  --accent:#0d6efd;
+  --admin-primary: #0d6efd;
+  --admin-success: #198754;
+  --admin-warning: #ffc107;
+  --admin-danger: #dc3545;
+  --admin-info: #0dcaf0;
+}
+
+body{
+  background:#f4f6f8;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* Navbar personalizado */
+.navbar {
+  border-bottom: 3px solid rgba(255,255,255,0.1);
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Tarjetas del dashboard */
+.admin-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.admin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Icon boxes en las tarjetas */
+.icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* Botones del admin */
+.admin-card .btn {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.admin-card .btn:hover {
+  transform: translateX(4px);
+}
+
+/* Cards de formularios */
+.card.form-card{
+  max-width:800px;
+  margin:auto;
+  border:0;
+  border-radius:.75rem;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+h1{
+  font-weight:700;
+  font-size:clamp(1.75rem,5vw,2.25rem);
+  color: #1a202c;
+}
+
+.btn-primary{
+  background:var(--accent);
+  border-color:var(--accent);
+  font-weight: 500;
+}
+
+.btn-primary:hover{
+  filter:brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+}
+
+/* Alertas mejoradas */
+.alert{
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.alert i {
+  font-size: 1.1rem;
+}
+
+/* Cards con bordes de color */
+.border-danger {
+  border-width: 2px !important;
+}
+
+/* Hover effects para selects y inputs */
+.form-select:focus,
+.form-control:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+/* Tabla de proyectos */
+.table-hover tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+  cursor: pointer;
+}
+
+/* Separadores de secciones */
+hr {
+  opacity: 0.1;
+  margin: 1.5rem 0;
+}
+
+/* Títulos de secciones en formularios */
+.card-title {
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.card-title i {
+  color: var(--admin-primary);
+}
+
+/* Labels mejorados */
+.form-label {
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+}
+
+.form-label.fw-semibold {
+  color: #1a202c;
+}
+
+.form-label i {
+  color: var(--admin-primary);
+  opacity: 0.7;
+}
+
+/* Campos requeridos */
+.text-danger {
+  font-size: 0.875rem;
+}
+
+/* Form text mejorado */
+.form-text {
+  font-size: 0.8125rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.form-text i {
+  font-size: 0.75rem;
+}
+
+/* Form switch mejorado */
+.form-check-input:checked {
+  background-color: var(--admin-primary);
+  border-color: var(--admin-primary);
+}
+
+/* Botones con iconos */
+.btn i {
+  font-size: 0.9rem;
+}
+
+/* Placeholders */
+::placeholder {
+  color: #cbd5e0;
+  opacity: 1;
+}
+
+/* Tarjetas con bordes de peligro */
+.border-danger.border-2 {
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.15) !important;
+}
+
+/* Background de headers con peligro */
+.bg-danger.bg-opacity-10 {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+/* Tabla de estadísticas */
+.table thead {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.03);
+  transform: scale(1.005);
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 1rem 0.75rem;
+}
+
+/* Badges en la tabla */
+.badge {
+  padding: 0.35rem 0.65rem;
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+
+/* Botones de acciones en tabla */
+.btn-group-sm .btn {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.btn-group-sm .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Card header de estadísticas */
+.card-header h5 {
+  color: #1a202c;
+  font-size: 1.25rem;
+}
+
+.card-header .h4 {
+  font-weight: 700;
+}
+
+/* Empty state */
+.bi-inbox {
+  opacity: 0.2;
+}
+
+/* Tarjetas de multimedia */
+.media-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.media-card .card-img-top {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.media-card .delete-media-btn {
+  transition: all 0.2s ease;
+}
+
+.media-card .delete-media-btn:hover {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+  transform: scale(1.05);
+}
+
+/* Estilos responsive para el grid */
+@media (max-width: 768px) {
+  .admin-card {
+    margin-bottom: 1rem;
+  }
+  
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  
+  .form-card {
+    padding: 1.5rem !important;
+  }
+  
+  .d-flex.gap-2 {
+    flex-direction: column;
+  }
+  
+  .d-flex.gap-2 .btn {
+    width: 100%;
+  }
+  
+  /* Ocultar columnas en móvil */
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .table td, .table th {
+    padding: 0.5rem;
+  }
+}

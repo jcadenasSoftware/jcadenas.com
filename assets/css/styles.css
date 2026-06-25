@@ -1,0 +1,291 @@
+html{scroll-behavior:smooth;}
+
+/* -------------------------------------------
+   Custom styles for JCadenas site
+   Color palette: blue/gray with orange accents
+-------------------------------------------- */
+:root {
+  --primary: #0d6efd;
+  --dark: #212529;
+  --accent: #fd7e14;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--dark);
+}
+
+pre, code, .code-font {
+  font-family: 'Fira Code', monospace;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: #fff;
+}
+.btn-accent:hover {
+  background-color: #e76d04;
+  color: #fff;
+}
+
+:root {
+  --spacing-section: 5rem;
+  --max-width: 1140px;
+}
+
+.section {
+  padding: var(--spacing-section) 0;
+}
+.section-light {
+  background: #f8f9fa;
+}
+.section-dark {
+  background: var(--dark);
+  color: #fff;
+}
+.section-accent {
+  background: var(--accent);
+  color: #fff;
+}
+.section h2 {
+  margin-bottom: 2rem;
+}
+.container-narrow {
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+.card-soft {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  transition: box-shadow .3s;
+}
+.card-soft:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background-image: url('../img/hero-bg.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+}
+.hero::before { /* default overlay */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: brightness(0.6);
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  backdrop-filter: saturate(150%) blur(4px);
+  background: rgba(0,0,0,0.25);
+  padding: 2rem 3rem;
+  border-radius: 0.75rem;
+}
+
+.hero .site-desc {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+/* Logo brand */
+.logo-img{
+  width:149px;
+  height:42px;
+  display:block;
+  border-radius:0.5rem;
+}
+
+/* Profile image */
+.profile-img{
+  width:220px !important;
+  height:361px !important;
+  display:block;
+  border-radius:0.5rem; /* sutil esquinas redondeadas */
+  object-fit:cover;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* Visual differentiation */
+#services-tech{
+  background:#ffffff;
+  background-image:radial-gradient(circle at 1px 1px,#e0e4ec 1px,transparent 0);
+  background-size:24px 24px;
+
+}
+#services-tech .card{
+  border:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+  transition:transform .3s, box-shadow .3s;
+}
+#services-tech .card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 6px 20px rgba(0,0,0,.1);
+}
+
+/* Animations */
+.fade-slide{opacity:0;transform:translateY(40px);transition:opacity .6s ease-out,transform .6s ease-out;}
+.fade-slide.show{opacity:1;transform:none;}
+
+/* Brighter overlay for portfolio hero */
+.portfolio-hero::before{
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:brightness(0.8);
+}
+
+/* Services section cards */
+#services .service-card{
+  position:relative;
+  border:none;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(16,24,40,.08);
+  transition:transform .25s ease, box-shadow .25s ease;
+  background:#ffffff;
+}
+#services .service-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:4px;
+  border-top-left-radius:14px;
+  border-top-right-radius:14px;
+  background:linear-gradient(90deg,#0d6efd, #6f42c1, #20c997);
+  background-size:200% 100%;
+  animation:barShift 6s linear infinite;
+}
+@keyframes barShift{0%{background-position:0 0}100%{background-position:200% 0}}
+
+#services .service-card .card-body{padding:1.25rem 1.25rem 1.5rem}
+#services .service-card .card-title{
+  display:flex;align-items:center;gap:.5rem;
+  font-weight:700;
+}
+#services .service-card .card-title i{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:999px;
+  color:#fff;
+  background:linear-gradient(135deg,#0d6efd,#6f42c1);
+  box-shadow:0 6px 14px rgba(13,110,253,.25);
+}
+#services .service-card .card-text{color:#5f6b7a}
+#services .service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 14px 30px rgba(16,24,40,.16);
+}
+
+/* Background for services section */
+#services{
+  position:relative;
+  background:
+    url('../img/services_bg.webp') center/cover no-repeat,
+    radial-gradient(800px 400px at 10% -10%, rgba(13,110,253,0.10), transparent 60%),
+    radial-gradient(700px 380px at 110% 0%, rgba(111,66,193,0.10), transparent 60%),
+    radial-gradient(600px 320px at 90% 120%, rgba(32,201,151,0.12), transparent 60%),
+    linear-gradient(180deg,#f8f9fb 0%, #eef1f7 100%);
+}
+#services::after{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  background:radial-gradient(1px 1px at 8% 20%, rgba(16,24,40,.06) 50%, transparent 51%),
+             radial-gradient(1px 1px at 18% 40%, rgba(16,24,40,.04) 50%, transparent 51%),
+             radial-gradient(1px 1px at 78% 30%, rgba(16,24,40,.05) 50%, transparent 51%);
+  opacity:.7;
+}
+
+/* Request form section background (same image, stronger overlay) */
+#solicitud{
+  position:relative;
+  background:
+    url('../img/services_bg.webp') center/cover no-repeat,
+    linear-gradient(180deg,#f8f9fb 0%, #eef1f7 100%);
+}
+#solicitud::before{
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(255,255,255,0.82);
+  pointer-events:none;
+}
+#solicitud .container{position:relative; z-index:1;}
+
+/* Light background for intro section */
+#about-intro{
+  position:relative;
+  background:
+    url('../img/services_bg.webp') center/cover no-repeat,
+    linear-gradient(180deg,#f8f9fb 0%, #eef1f7 100%);
+  color:#fff;
+}
+#about-intro::before{
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:brightness(0.85);
+  pointer-events:none;
+}
+#about-intro .container{position:relative; z-index:1;}
+#about-intro p{
+  text-align:justify;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Reduce top padding of hero section (desktop) */
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 1.5rem; /* antes 4rem */
+  }
+}
+
+/* Adjust hero content vertical position on medium+ screens */
+@media (min-width: 768px) {
+  .hero .hero-content {
+    transform: translateY(-80px);
+  }
+}
+
+/* Grid de habilidades técnicas - 5 columnas en desktop */
+@media (min-width: 992px) {
+  .tech-skills-grid .tech-skill-col {
+    flex: 0 0 auto;
+    width: 20% !important; /* 100% / 5 = 20% por columna */
+    max-width: 20%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .tech-skills-grid .tech-skill-col {
+    flex: 0 0 auto;
+    width: 33.333333% !important; /* 3 columnas en tablets */
+    max-width: 33.333333%;
+  }
+}
+
+/* Móviles mantienen col-6 (50%) */
+@media (max-width: 767px) {
+  .tech-skills-grid .tech-skill-col {
+    flex: 0 0 auto;
+    width: 50% !important;
+    max-width: 50%;
+  }
+}
