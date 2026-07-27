@@ -5,6 +5,9 @@ header('Content-Type: application/xml; charset=UTF-8');
 
 $pages = [
     [ 'path' => '', 'file' => __DIR__ . '/index.php', 'changefreq' => 'weekly', 'priority' => '1.0' ],
+    [ 'path' => 'xpendz', 'file' => __DIR__ . '/xpendz.php', 'changefreq' => 'weekly', 'priority' => '0.9' ],
+    [ 'path' => 'xpendz/privacidad', 'file' => __DIR__ . '/privacidad.php', 'changefreq' => 'monthly', 'priority' => '0.8' ],
+    [ 'path' => 'xpendz/eliminar-cuenta', 'file' => __DIR__ . '/eliminar-cuenta.php', 'changefreq' => 'monthly', 'priority' => '0.8' ],
     [ 'path' => 'about.php', 'file' => __DIR__ . '/about.php', 'changefreq' => 'monthly', 'priority' => '0.8' ],
     [ 'path' => 'services.php', 'file' => __DIR__ . '/services.php', 'changefreq' => 'monthly', 'priority' => '0.8' ],
     [ 'path' => 'portfolio.php', 'file' => __DIR__ . '/portfolio.php', 'changefreq' => 'weekly', 'priority' => '0.8' ],

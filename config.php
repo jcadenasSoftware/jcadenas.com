@@ -25,6 +25,7 @@ if (str_contains($host, 'localhost') || str_contains($host, '127.0.0.1')) {
 
 // Normalize URLs to avoid duplicates (SEO):
 // - Redirect /index.php to /
+// - Redirect legacy privacy URLs to /xpendz/privacidad
 // - Remove trailing slash from *.php/ URLs
 if (PHP_SAPI !== 'cli' && !headers_sent()) {
     $reqUri = (string)($_SERVER['REQUEST_URI'] ?? '/');
@@ -34,8 +35,35 @@ if (PHP_SAPI !== 'cli' && !headers_sent()) {
 
     $normalizedPath = $path;
 
+    if ($normalizedPath !== '/') {
+        $normalizedPath = rtrim($normalizedPath, '/');
+        if ($normalizedPath === '') {
+            $normalizedPath = '/';
+        }
+    }
+
     if ($normalizedPath === '/index.php') {
         $normalizedPath = '/';
+    }
+
+    if ($normalizedPath === '/xpendz.php') {
+        $normalizedPath = '/xpendz';
+    }
+
+    if ($normalizedPath === '/privacidad.php') {
+        $normalizedPath = '/xpendz/privacidad';
+    }
+
+    if ($normalizedPath === '/privacidad') {
+        $normalizedPath = '/xpendz/privacidad';
+    }
+
+    if ($normalizedPath === '/eliminar-cuenta.php') {
+        $normalizedPath = '/xpendz/eliminar-cuenta';
+    }
+
+    if ($normalizedPath === '/eliminar-cuenta') {
+        $normalizedPath = '/xpendz/eliminar-cuenta';
     }
 
     if (preg_match('~\.php/+$~i', $normalizedPath)) {
@@ -263,7 +291,7 @@ if (!function_exists('decryptSecret')) {
 if (!function_exists('siteUrl')) {
     function siteUrl(string $path = ''): string {
         $base = rtrim(SITE_BASE_URL, '/');
-        $p = ltrim($path, '/');
+        $p = trim($path, '/');
         return $p ? ($base . '/' . $p) : ($base . '/');
     }
 }
