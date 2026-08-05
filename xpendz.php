@@ -13,16 +13,12 @@ $xpendzNavLinks = [
   [ 'label' => 'Privacidad', 'href' => siteUrl('xpendz/privacidad') ],
   [ 'label' => 'Eliminar cuenta', 'href' => siteUrl('xpendz/eliminar-cuenta') ],
 ];
+$xpendzShowCta = true;
 include 'includes/header-xpendz.php';
 ?>
 <!-- Hero Section -->
 <section class="xpendz-hero" id="hero">
   <div class="container">
-    <div class="xpendz-hero-brand" aria-label="Xpendz">
-      <img src="<?= $base ?>/assets/img/xpendz.png" alt="Xpendz" class="xpendz-hero-logo" width="48" height="48" loading="eager">
-      <span class="xpendz-hero-brand-name">Xpendz</span>
-    </div>
-
     <div class="xpendz-hero-grid">
 
       <!-- Columna izquierda: Contenido de texto -->
