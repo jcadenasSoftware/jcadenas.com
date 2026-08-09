@@ -1,4 +1,8 @@
 </main>
+
+    <!-- Xpendz Header Lifecycle Script -->
+    <script src="<?= $base ?>/assets/js/xpendz-header.js" defer></script>
+
     <!-- Xpendz Footer -->
     <footer class="xpendz-footer">
       <div class="container">

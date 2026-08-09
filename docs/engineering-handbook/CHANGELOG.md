@@ -271,3 +271,24 @@ Su objetivo es preservar el conocimiento adquirido durante el desarrollo.
 
 > **"Un buen repositorio conserva el código.  
 > Un buen CHANGELOG conserva la historia del proyecto."**
+
+---
+
+## [1.1.0] — 2026-08-05
+
+### Added
+
+- Creación de la carpeta `07_AUDITS`.
+- Creación de la carpeta `12_TEMPLATES`.
+- Incorporación de `AUDIT-001 Current Landing State`.
+- Incorporación de `MEMORY-001 Lessons Learned`.
+
+### Changed
+
+- La metodología oficial incorpora la fase de Auditoría antes de cualquier implementación importante.
+- Se adopta el principio **Audit First** como parte del proceso de ingeniería.
+
+### Improved
+
+- Se formaliza la estructura del Engineering Handbook.
+- Se mejora la trazabilidad del conocimiento del proyecto.

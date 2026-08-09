@@ -17,15 +17,17 @@
     return;
   }
 
+  function setMobileMenuState(isOpen) {
+    mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    mobileMenu.classList.toggle('open', isOpen);
+    mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
   // Toggle mobile menu
   function toggleMobileMenu() {
     var isOpen = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-    
-    mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
-    mobileMenu.classList.toggle('open', !isOpen);
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = !isOpen ? 'hidden' : '';
+    setMobileMenuState(!isOpen);
     
     // Focus management
     if (!isOpen) {
@@ -39,9 +41,7 @@
   function closeMobileMenu() {
     var isOpen = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
     if (isOpen) {
-      mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+      setMobileMenuState(false);
       mobileMenuBtn.focus();
     }
   }
@@ -68,10 +68,22 @@
     link.addEventListener('click', closeMobileMenu);
   });
 
+  mobileMenu.addEventListener('click', function(e) {
+    if (e.target === mobileMenu) {
+      closeMobileMenu();
+    }
+  });
+
   // Close menu on escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
       closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth >= 768) {
+      setMobileMenuState(false);
     }
   });
 

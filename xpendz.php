@@ -25,44 +25,44 @@ include 'includes/header-xpendz.php';
       <div class="xpendz-hero-content">
         <div class="xpendz-hero-badge">
           <i class="bi bi-stars" aria-hidden="true"></i>
-          <span>Finanzas personales, simplificadas</span>
+          <span>Claridad financiera para tu día a día</span>
         </div>
         <h1 class="xpendz-title">
-          Toma el control<br>de tu <span class="xpendz-title-accent">dinero</span>
+          Toma el control de tus finanzas.
         </h1>
         <p class="xpendz-description">
-          Registra gastos, ingresos, préstamos y metas desde un solo lugar. Simple, seguro y siempre en tu bolsillo.
+          Registra tus ingresos y gastos, visualiza tus cuentas y comprende cómo se mueve tu dinero desde una sola aplicación.
         </p>
         <div class="xpendz-hero-ctas">
-          <a href="#" class="xpendz-cta-primary" aria-label="Próximamente disponible en Google Play">
+          <a href="#" class="xpendz-cta-primary" aria-label="Descargar Xpendz gratis">
             <i class="bi bi-google-play" aria-hidden="true"></i>
             <span class="xpendz-cta-primary-text">
-              <small>Próximamente en</small>
-              <strong>Google Play</strong>
+              <small>Descargar</small>
+              <strong>Gratis</strong>
             </span>
           </a>
           <a href="#features" class="xpendz-cta-secondary">
-            Conocer funciones
+            Conocer cómo funciona
             <i class="bi bi-arrow-down" aria-hidden="true"></i>
           </a>
         </div>
-        <div class="xpendz-trust-row" aria-label="Características de seguridad">
-          <div class="xpendz-trust-item">
-            <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
-            <span>Datos cifrados</span>
+        <div class="xpendz-benefits-row" aria-label="Beneficios principales">
+          <div class="xpendz-benefit-item">
+            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+            <span>Comprende en qué gastas tu dinero</span>
           </div>
-          <div class="xpendz-trust-item">
-            <i class="bi bi-cloud-check-fill" aria-hidden="true"></i>
-            <span>Sync segura</span>
+          <div class="xpendz-benefit-item">
+            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+            <span>Organiza tus finanzas sin complicaciones</span>
           </div>
-          <div class="xpendz-trust-item">
-            <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
-            <span>Estadísticas inteligentes</span>
+          <div class="xpendz-benefit-item">
+            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+            <span>Toma decisiones con mayor confianza</span>
           </div>
         </div>
       </div>
 
-      <!-- Columna derecha: Espacio reservado para mockup -->
+      <!-- Columna derecha: Captura de la aplicación -->
       <div class="xpendz-hero-visual" aria-hidden="true">
         <div class="xpendz-mockup-placeholder">
           <img src="<?= $base ?>/assets/img/xpendz-screenshot.webp" alt="Pantalla principal del dashboard financiero de Xpendz" class="xpendz-mockup-image" width="220" height="475" loading="eager" fetchpriority="high">

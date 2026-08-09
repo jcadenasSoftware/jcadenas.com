@@ -74,13 +74,13 @@ h1,h2,h3,h4,h5{font-weight:700;margin:0;}
 <body class="<?= htmlspecialchars(trim('xpendz-page ' . ($pageBodyClass ?? '')), ENT_QUOTES) ?>">
 <a href="<?= htmlspecialchars($pageSkipTarget ?? '#hero', ENT_QUOTES) ?>" class="skip-to-content">Saltar al contenido principal</a>
 <?php if (!empty($showXpendzNav) && !empty($xpendzNavLinks) && is_array($xpendzNavLinks)): ?>
-<header class="xpendz-site-header">
+<header class="xpendz-site-header" id="xpendz-header">
     <div class="container xpendz-site-header-inner">
         <a class="xpendz-site-brand" href="<?= htmlspecialchars($xpendzBrandHref ?? siteUrl('xpendz'), ENT_QUOTES) ?>" aria-label="Xpendz - inicio">
             <img src="<?= $base ?>/assets/img/xpendz.png" alt="Xpendz" class="xpendz-site-brand-logo" width="40" height="40" loading="eager" decoding="async">
             <span class="xpendz-site-brand-name">Xpendz</span>
         </a>
-        <nav class="xpendz-site-nav" aria-label="Navegación principal">
+        <nav class="xpendz-site-nav xpendz-site-nav--desktop" aria-label="Navegación principal">
             <ul class="xpendz-site-nav-list">
                 <?php foreach ($xpendzNavLinks as $navLink): ?>
                     <li class="xpendz-site-nav-item">
@@ -89,7 +89,27 @@ h1,h2,h3,h4,h5{font-weight:700;margin:0;}
                 <?php endforeach; ?>
             </ul>
         </nav>
+        <button class="xpendz-mobile-menu-btn" id="xpendz-mobile-menu-btn" type="button" aria-label="Abrir menú" aria-controls="xpendz-mobile-menu" aria-expanded="false">
+            <span class="xpendz-mobile-menu-icon"></span>
+            <span class="xpendz-mobile-menu-icon"></span>
+            <span class="xpendz-mobile-menu-icon"></span>
+        </button>
     </div>
 </header>
+
+<!-- Mobile Menu -->
+<div class="xpendz-mobile-menu" id="xpendz-mobile-menu" aria-hidden="true">
+    <nav class="xpendz-mobile-menu-nav" aria-label="Navegación móvil">
+        <ul class="xpendz-mobile-menu-list">
+            <?php foreach ($xpendzNavLinks as $navLink): ?>
+                <li class="xpendz-mobile-menu-item">
+                    <a class="xpendz-mobile-menu-link<?= !empty($navLink['primary']) ? ' xpendz-mobile-menu-link--primary' : '' ?>" href="<?= htmlspecialchars($navLink['href'], ENT_QUOTES) ?>">
+                        <?= htmlspecialchars($navLink['label'], ENT_QUOTES) ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+</div>
 <?php endif; ?>
     <main id="<?= htmlspecialchars($pageMainId ?? 'xpendz-main', ENT_QUOTES) ?>">
