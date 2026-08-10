@@ -9,9 +9,10 @@ $pageMainId = 'xpendz-main';
 $pageSkipTarget = '#hero';
 $showXpendzNav = true;
 $xpendzNavLinks = [
-  [ 'label' => 'Inicio', 'href' => siteUrl('xpendz') . '#hero', 'primary' => true ],
-  [ 'label' => 'Privacidad', 'href' => siteUrl('xpendz/privacidad') ],
-  [ 'label' => 'Eliminar cuenta', 'href' => siteUrl('xpendz/eliminar-cuenta') ],
+  [ 'label' => 'Inicio', 'href' => siteUrl('xpendz'), 'primary' => true ],
+  [ 'label' => 'Funciones', 'href' => siteUrl('xpendz/funciones') ],
+  [ 'label' => 'Privacidad y seguridad', 'href' => siteUrl('xpendz/privacidad-y-seguridad') ],
+  [ 'label' => 'Descargar', 'href' => siteUrl('xpendz/descargar') ],
 ];
 $xpendzShowCta = true;
 include 'includes/header-xpendz.php';
@@ -34,14 +35,14 @@ include 'includes/header-xpendz.php';
           Registra tus ingresos y gastos, visualiza tus cuentas y comprende cómo se mueve tu dinero desde una sola aplicación.
         </p>
         <div class="xpendz-hero-ctas">
-          <a href="#" class="xpendz-cta-primary" aria-label="Descargar Xpendz gratis">
+          <a href="<?= htmlspecialchars(XPENDZ_GOOGLE_PLAY_URL, ENT_QUOTES) ?>" class="xpendz-cta-primary" aria-label="Comenzar a usar Xpendz: descargar">
             <i class="bi bi-google-play" aria-hidden="true"></i>
             <span class="xpendz-cta-primary-text">
               <small>Descargar</small>
               <strong>Gratis</strong>
             </span>
           </a>
-          <a href="#features" class="xpendz-cta-secondary">
+          <a href="<?= htmlspecialchars(siteUrl('xpendz/funciones'), ENT_QUOTES) ?>" class="xpendz-cta-secondary">
             Conocer cómo funciona
             <i class="bi bi-arrow-down" aria-hidden="true"></i>
           </a>
@@ -73,72 +74,6 @@ include 'includes/header-xpendz.php';
   </div>
 </section>
 
-<!-- Showcase Section -->
-<section class="xpendz-showcase" id="showcase">
-  <div class="container">
-    <div class="xpendz-showcase-header">
-      <h2 class="xpendz-showcase-title">Todo lo que necesitas para controlar tus finanzas</h2>
-      <p class="xpendz-showcase-subtitle">Descubre cómo Xpendz te ayuda a tomar mejores decisiones financieras con herramientas simples y poderosas.</p>
-    </div>
-
-    <!-- Bloque 1: Dashboard financiero -->
-    <div class="xpendz-showcase-block">
-      <div class="xpendz-showcase-content">
-        <h3 class="xpendz-showcase-block-title">Visualiza tu panorama financiero completo</h3>
-        <p class="xpendz-showcase-block-desc">Accede a un dashboard intuitivo que te muestra tu balance actual, ingresos, gastos y el estado de tus cuentas en tiempo real. Todo lo que necesitas saber, de un vistazo.</p>
-      </div>
-      <div class="xpendz-showcase-visual">
-        <img src="<?= $base ?>/assets/img/showcase/dashboard.webp" alt="Dashboard financiero de Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
-      </div>
-    </div>
-
-    <!-- Bloque 2: Registro de gastos e ingresos -->
-    <div class="xpendz-showcase-block xpendz-showcase-block-reverse">
-      <div class="xpendz-showcase-content">
-        <h3 class="xpendz-showcase-block-title">Registra cada movimiento en segundos</h3>
-        <p class="xpendz-showcase-block-desc">Añade gastos e ingresos de forma rápida y sencilla. Categoriza tus transacciones, adjunta notas y mantén un historial completo de tu actividad financiera.</p>
-      </div>
-      <div class="xpendz-showcase-visual">
-        <img src="<?= $base ?>/assets/img/showcase/transactions.webp" alt="Registro de transacciones en Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
-      </div>
-    </div>
-
-    <!-- Bloque 3: Metas de ahorro -->
-    <div class="xpendz-showcase-block">
-      <div class="xpendz-showcase-content">
-        <h3 class="xpendz-showcase-block-title">Alcanza tus objetivos financieros</h3>
-        <p class="xpendz-showcase-block-desc">Define metas de ahorro personalizadas y monitorea tu progreso. Xpendz te motiva a cumplir tus objetivos con visualizaciones claras y recordatorios inteligentes.</p>
-      </div>
-      <div class="xpendz-showcase-visual">
-        <img src="<?= $base ?>/assets/img/showcase/goals.webp" alt="Metas de ahorro en Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
-      </div>
-    </div>
-
-    <!-- Bloque 4: Préstamos y abonos -->
-    <div class="xpendz-showcase-block xpendz-showcase-block-reverse">
-      <div class="xpendz-showcase-content">
-        <h3 class="xpendz-showcase-block-title">Gestiona préstamos sin complicaciones</h3>
-        <p class="xpendz-showcase-block-desc">Lleva un control detallado de los préstamos que otorgas o recibes. Registra abonos, consulta saldos pendientes y mantén tus finanzas organizadas.</p>
-      </div>
-      <div class="xpendz-showcase-visual">
-        <img src="<?= $base ?>/assets/img/showcase/loans.webp" alt="Gestión de préstamos en Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
-      </div>
-    </div>
-
-    <!-- Bloque 5: Seguridad y respaldos -->
-    <div class="xpendz-showcase-block">
-      <div class="xpendz-showcase-content">
-        <h3 class="xpendz-showcase-block-title">Tus datos, siempre protegidos</h3>
-        <p class="xpendz-showcase-block-desc">Protege tu información con PIN y disfruta de respaldos automáticos en la nube. Tus datos financieros están cifrados y seguros, disponibles cuando los necesites.</p>
-      </div>
-      <div class="xpendz-showcase-visual">
-        <img src="<?= $base ?>/assets/img/showcase/security.webp" alt="Seguridad y respaldos en Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- Features Section -->
 <section class="xpendz-features" id="features">
   <div class="container">
@@ -152,22 +87,6 @@ include 'includes/header-xpendz.php';
         </div>
         <h3 class="xpendz-feature-title">Control financiero completo</h3>
         <p class="xpendz-feature-desc">Visualiza ingresos, gastos, cuentas, préstamos y metas desde una única aplicación.</p>
-      </div>
-
-      <div class="xpendz-feature-card">
-        <div class="xpendz-feature-icon">
-          <i class="bi bi-shield-check"></i>
-        </div>
-        <h3 class="xpendz-feature-title">Privacidad primero</h3>
-        <p class="xpendz-feature-desc">Protege tu información mediante PIN, cifrado local y respaldos seguros.</p>
-      </div>
-
-      <div class="xpendz-feature-card">
-        <div class="xpendz-feature-icon">
-          <i class="bi bi-cloud-check"></i>
-        </div>
-        <h3 class="xpendz-feature-title">Tus datos siempre contigo</h3>
-        <p class="xpendz-feature-desc">Crea respaldos cifrados y recupera tu información cuando la necesites.</p>
       </div>
 
       <div class="xpendz-feature-card">
@@ -195,139 +114,53 @@ include 'includes/header-xpendz.php';
       </div>
 
     </div>
+    <div class="xpendz-cta-final-buttons">
+      <a href="<?= htmlspecialchars(siteUrl('xpendz/funciones'), ENT_QUOTES) ?>" class="xpendz-cta-final-secondary" aria-label="Ir a la página de Funciones de Xpendz">
+        Explorar la página de Funciones
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- Checklist Section -->
-<section class="xpendz-checklist" id="todo-incluye">
+<!-- Showcase Section -->
+<section class="xpendz-showcase" id="showcase">
   <div class="container">
-    <div class="xpendz-checklist-header">
-      <h2 class="xpendz-checklist-title">Todo lo que incluye Xpendz</h2>
-      <p class="xpendz-checklist-subtitle">Una aplicación diseñada para ayudarte a administrar tus finanzas personales de principio a fin.</p>
+    <div class="xpendz-showcase-header">
+      <h2 class="xpendz-showcase-title">Todo lo que necesitas para controlar tus finanzas</h2>
+      <p class="xpendz-showcase-subtitle">Descubre cómo Xpendz te ayuda a tomar mejores decisiones financieras con herramientas simples y poderosas.</p>
     </div>
-    <div class="xpendz-checklist-grid">
 
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-receipt" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Registro de gastos</h4>
-          <p class="xpendz-checklist-item-desc">Controla cada gasto de forma rápida y organizada.</p>
-        </div>
+    <div class="xpendz-showcase-block">
+      <div class="xpendz-showcase-content">
+        <h3 class="xpendz-showcase-block-title">Visualiza tu panorama financiero completo</h3>
+        <p class="xpendz-showcase-block-desc">Accede a un dashboard intuitivo que te muestra tu balance actual, ingresos, gastos y el estado de tus cuentas en tiempo real. Todo lo que necesitas saber, de un vistazo.</p>
       </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-cash-coin" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Registro de ingresos</h4>
-          <p class="xpendz-checklist-item-desc">Mantén un historial completo de todo tu dinero recibido.</p>
-        </div>
+      <div class="xpendz-showcase-visual">
+        <img src="<?= $base ?>/assets/img/showcase/dashboard.webp" alt="Dashboard financiero de Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
       </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-wallet2" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Gestión de cuentas</h4>
-          <p class="xpendz-checklist-item-desc">Administra efectivo, bancos, billeteras y más.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-tags" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Categorías personalizadas</h4>
-          <p class="xpendz-checklist-item-desc">Organiza tus movimientos según tus necesidades.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-sliders" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Presupuestos</h4>
-          <p class="xpendz-checklist-item-desc">Define límites mensuales para controlar tus gastos.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-bullseye" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Metas de ahorro</h4>
-          <p class="xpendz-checklist-item-desc">Haz seguimiento al progreso de tus objetivos financieros.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Préstamos</h4>
-          <p class="xpendz-checklist-item-desc">Controla dinero prestado y dinero por cobrar.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-bar-chart-line" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Estadísticas inteligentes</h4>
-          <p class="xpendz-checklist-item-desc">Consulta balances, tendencias y resúmenes financieros.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-shield-lock" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Respaldo cifrado</h4>
-          <p class="xpendz-checklist-item-desc">Protege tus datos mediante respaldos seguros.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-cloud-check" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Sincronización</h4>
-          <p class="xpendz-checklist-item-desc">Mantén tu información disponible entre dispositivos compatibles.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-lock" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Protección mediante PIN</h4>
-          <p class="xpendz-checklist-item-desc">Evita accesos no autorizados a tu información.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-checklist-item">
-        <div class="xpendz-checklist-icon">
-          <i class="bi bi-box-arrow-up" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-checklist-text">
-          <h4 class="xpendz-checklist-item-title">Exportación</h4>
-          <p class="xpendz-checklist-item-desc">Genera respaldos y comparte tu información cuando lo necesites.</p>
-        </div>
-      </div>
-
     </div>
+
+    <div class="xpendz-showcase-block xpendz-showcase-block-reverse">
+      <div class="xpendz-showcase-content">
+        <h3 class="xpendz-showcase-block-title">Registra cada movimiento en segundos</h3>
+        <p class="xpendz-showcase-block-desc">Añade gastos e ingresos de forma rápida y sencilla. Categoriza tus transacciones, adjunta notas y mantén un historial completo de tu actividad financiera.</p>
+      </div>
+      <div class="xpendz-showcase-visual">
+        <img src="<?= $base ?>/assets/img/showcase/transactions.webp" alt="Registro de transacciones en Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
+      </div>
+    </div>
+
+    <div class="xpendz-showcase-block">
+      <div class="xpendz-showcase-content">
+        <h3 class="xpendz-showcase-block-title">Alcanza tus objetivos financieros</h3>
+        <p class="xpendz-showcase-block-desc">Define metas de ahorro personalizadas y monitorea tu progreso. Xpendz te motiva a cumplir tus objetivos con visualizaciones claras y recordatorios inteligentes.</p>
+      </div>
+      <div class="xpendz-showcase-visual">
+        <img src="<?= $base ?>/assets/img/showcase/goals.webp" alt="Metas de ahorro en Xpendz" class="xpendz-showcase-image" width="310" height="650" loading="lazy">
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -356,8 +189,8 @@ include 'includes/header-xpendz.php';
           <i class="bi bi-lock-fill" aria-hidden="true"></i>
         </div>
         <div class="xpendz-trust-card-content">
-          <h3 class="xpendz-trust-card-title">Respaldos protegidos</h3>
-          <p class="xpendz-trust-card-desc">Crea y restaura respaldos cifrados para mantener tu información segura y disponible cuando la necesites.</p>
+          <h3 class="xpendz-trust-card-title">Respaldos bajo tu control</h3>
+          <p class="xpendz-trust-card-desc">Crea y restaura respaldos manuales para conservar una copia independiente de tu información y mantenerla disponible cuando la necesites.</p>
         </div>
       </div>
 
@@ -371,35 +204,28 @@ include 'includes/header-xpendz.php';
         </div>
       </div>
 
-      <div class="xpendz-trust-card">
-        <div class="xpendz-trust-card-icon">
-          <i class="bi bi-phone" aria-hidden="true"></i>
-        </div>
-        <div class="xpendz-trust-card-content">
-          <h3 class="xpendz-trust-card-title">Diseñada para el uso diario</h3>
-          <p class="xpendz-trust-card-desc">Una experiencia rápida, intuitiva y enfocada en ayudarte a mantener el control de tus finanzas.</p>
-        </div>
-      </div>
-
     </div>
 
     <div class="xpendz-trust-band">
-      <div class="xpendz-trust-band-item">
-        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-        <span>Sin publicidad invasiva</span>
-      </div>
       <div class="xpendz-trust-band-item">
         <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
         <span>Datos protegidos</span>
       </div>
       <div class="xpendz-trust-band-item">
         <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-        <span>Respaldos cifrados</span>
+        <span>Respaldos manuales</span>
       </div>
       <div class="xpendz-trust-band-item">
         <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-        <span>Actualizaciones continuas</span>
+        <span>Sincronización segura</span>
       </div>
+    </div>
+
+    <div class="xpendz-cta-final-buttons">
+      <a href="<?= htmlspecialchars(siteUrl('xpendz/privacidad-y-seguridad'), ENT_QUOTES) ?>" class="xpendz-cta-final-secondary" aria-label="Ir a la página de Privacidad y seguridad de Xpendz">
+        Conocer Privacidad y seguridad
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </a>
     </div>
 
   </div>
@@ -422,8 +248,6 @@ include 'includes/header-xpendz.php';
         </button>
         <div class="xpendz-faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
           <p>Sí. Xpendz ofrece un plan gratuito con todas las funciones esenciales para administrar tus finanzas personales.</p>
-          <p>Si necesitas ampliar los límites de uso, disfrutar de una experiencia sin publicidad o acceder a futuras funciones exclusivas, podrás actualizar a Xpendz Premium cuando lo desees.</p>
-          <p>Además, podrás probar Xpendz Premium durante <strong>7 días sin costo</strong> antes de decidir si deseas suscribirte.</p>
         </div>
       </div>
 
@@ -433,50 +257,18 @@ include 'includes/header-xpendz.php';
           <i class="bi bi-chevron-down xpendz-faq-chevron" aria-hidden="true"></i>
         </button>
         <div class="xpendz-faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
-          <p>Sí. Xpendz protege tu información con almacenamiento seguro, cifrado de respaldos y controles diseñados para mantener tus datos privados.</p>
+          <p>Sí. Xpendz protege tu información con almacenamiento local, autenticación gestionada, conexiones seguras para sincronización y controles diseñados para mantener tus datos privados.</p>
           <p>Tu información sigue siendo tuya, independientemente del plan que utilices.</p>
         </div>
       </div>
 
       <div class="xpendz-faq-item">
         <button class="xpendz-faq-question" id="faq-btn-3" aria-expanded="false" aria-controls="faq-answer-3">
-          <span>¿Necesito conexión a Internet para usar Xpendz?</span>
-          <i class="bi bi-chevron-down xpendz-faq-chevron" aria-hidden="true"></i>
-        </button>
-        <div class="xpendz-faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
-          <p>Sí. Actualmente Xpendz requiere una conexión a Internet para iniciar sesión y sincronizar tu información de forma segura entre dispositivos.</p>
-          <p>Una vez que hayas iniciado sesión, puedes seguir registrando gastos, ingresos y otras operaciones aunque pierdas temporalmente la conexión. Los cambios se guardarán en tu dispositivo y se sincronizarán automáticamente cuando vuelvas a estar conectado.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-faq-item">
-        <button class="xpendz-faq-question" id="faq-btn-4" aria-expanded="false" aria-controls="faq-answer-4">
           <span>¿Puedo usar Xpendz en varios dispositivos?</span>
           <i class="bi bi-chevron-down xpendz-faq-chevron" aria-hidden="true"></i>
         </button>
-        <div class="xpendz-faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4">
+        <div class="xpendz-faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
           <p>Sí. Xpendz permite sincronizar tu información para que puedas mantener tus datos disponibles entre dispositivos compatibles.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-faq-item">
-        <button class="xpendz-faq-question" id="faq-btn-5" aria-expanded="false" aria-controls="faq-answer-5">
-          <span>¿Qué pasa si cambio de teléfono o pierdo mi dispositivo?</span>
-          <i class="bi bi-chevron-down xpendz-faq-chevron" aria-hidden="true"></i>
-        </button>
-        <div class="xpendz-faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-btn-5">
-          <p>Tus datos pueden recuperarse mediante los mecanismos de respaldo disponibles. Te recomendamos mantener tus respaldos actualizados para evitar pérdidas de información.</p>
-        </div>
-      </div>
-
-      <div class="xpendz-faq-item">
-        <button class="xpendz-faq-question" id="faq-btn-6" aria-expanded="false" aria-controls="faq-answer-6">
-          <span>¿Qué puedo registrar en Xpendz?</span>
-          <i class="bi bi-chevron-down xpendz-faq-chevron" aria-hidden="true"></i>
-        </button>
-        <div class="xpendz-faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-btn-6">
-          <p>Puedes registrar gastos, ingresos, transferencias, cuentas, categorías, presupuestos, metas de ahorro y préstamos, además de consultar tu resumen financiero desde una sola aplicación.</p>
-          <p>El plan gratuito incluye todas las funciones esenciales. Si en el futuro necesitas ampliar los límites de uso, podrás hacerlo con Xpendz Premium.</p>
         </div>
       </div>
 
@@ -485,124 +277,21 @@ include 'includes/header-xpendz.php';
 </section>
 
 <!-- CTA Final Section -->
-<section class="xpendz-cta-final" id="cta-final">
+<section class="xpendz-cta-final" id="descargar">
   <div class="container">
     <div class="xpendz-cta-final-content">
-      <h2 class="xpendz-cta-final-title">Comienza gratis con Xpendz</h2>
+      <h2 class="xpendz-cta-final-title">Comienza con Xpendz</h2>
       <p class="xpendz-cta-final-text">
-        Organiza tus ingresos, gastos, presupuestos, préstamos y metas de ahorro desde una sola aplicación.
-        Empieza con el plan gratuito y, cuando necesites ampliar los límites de uso o disfrutar de una experiencia sin publicidad, podrás actualizar a Xpendz Premium.
+        Empieza hoy a organizar tu dinero de una forma más clara, sencilla y organizada.
+        Descarga Xpendz y comienza a construir mejores hábitos financieros.
       </p>
       <div class="xpendz-cta-final-buttons">
-        <a href="#" class="xpendz-cta-final-primary" aria-label="Descargar gratis para Android">
+        <a href="<?= htmlspecialchars(XPENDZ_GOOGLE_PLAY_URL, ENT_QUOTES) ?>" class="xpendz-cta-final-primary" aria-label="Descargar Xpendz">
           <i class="bi bi-google-play" aria-hidden="true"></i>
-          <span>Descargar gratis para Android</span>
-        </a>
-        <a href="#planes" class="xpendz-cta-final-secondary">
-          Conocer más
-          <i class="bi bi-arrow-down" aria-hidden="true"></i>
+          <span>Ir a Descargar</span>
         </a>
       </div>
-      <div class="xpendz-cta-final-trust">
-        <div class="xpendz-cta-final-trust-item">
-          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-          <span>Plan gratuito disponible</span>
-        </div>
-        <div class="xpendz-cta-final-trust-item">
-          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-          <span>Prueba Premium durante 7 días</span>
-        </div>
-        <div class="xpendz-cta-final-trust-item">
-          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-          <span>Cancela cuando quieras</span>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
-
-<!-- Plans Section -->
-<section class="xpendz-plans" id="planes">
-  <div class="container">
-    <div class="xpendz-plans-header">
-      <h2 class="xpendz-plans-title">Elige el plan que mejor se adapte a ti</h2>
-      <p class="xpendz-plans-subtitle">Empieza gratis y actualiza a Premium solo cuando realmente lo necesites.</p>
-    </div>
-
-    <div class="xpendz-plans-grid">
-
-      <!-- Plan Gratuito -->
-      <div class="xpendz-plan-card">
-        <div class="xpendz-plan-content">
-          <h3 class="xpendz-plan-name">Xpendz Gratis</h3>
-          <ul class="xpendz-plan-features">
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Todas las funciones esenciales</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Registro ilimitado de ingresos y gastos</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Dashboard y reportes</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Sincronización segura</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Publicidad discreta</span>
-            </li>
-          </ul>
-          <a href="#" class="xpendz-plan-button xpendz-plan-button--primary">
-            Comenzar gratis
-          </a>
-        </div>
-      </div>
-
-      <!-- Plan Premium -->
-      <div class="xpendz-plan-card xpendz-plan-card--premium">
-        <div class="xpendz-plan-badge">Recomendado</div>
-        <div class="xpendz-plan-content">
-          <h3 class="xpendz-plan-name">Xpendz Premium</h3>
-          <ul class="xpendz-plan-features">
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Todo lo incluido en Gratis</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Sin límites de uso</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Sin publicidad</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Prueba gratuita durante 7 días</span>
-            </li>
-            <li class="xpendz-plan-feature">
-              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-              <span>Acceso prioritario a futuras funciones</span>
-            </li>
-          </ul>
-          <a href="#" class="xpendz-plan-button xpendz-plan-button--premium">
-            Conocer Premium
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <p class="xpendz-plans-footer-text">
-      <i class="bi bi-shield-check" aria-hidden="true"></i>
-      <span>Todos tus datos permanecen contigo incluso si decides volver al plan gratuito.</span>
-    </p>
-
   </div>
 </section>
 

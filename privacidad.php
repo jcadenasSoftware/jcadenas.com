@@ -9,9 +9,10 @@ $pageMainId = 'privacy-main';
 $pageSkipTarget = '#privacy-hero';
 $showXpendzNav = true;
 $xpendzNavLinks = [
-  [ 'label' => 'Inicio', 'href' => siteUrl('xpendz') . '#hero' ],
-  [ 'label' => 'Privacidad', 'href' => siteUrl('xpendz/privacidad'), 'primary' => true ],
-  [ 'label' => 'Eliminar cuenta', 'href' => siteUrl('xpendz/eliminar-cuenta') ],
+  [ 'label' => 'Inicio', 'href' => siteUrl('xpendz') ],
+  [ 'label' => 'Funciones', 'href' => siteUrl('xpendz/funciones') ],
+  [ 'label' => 'Privacidad y seguridad', 'href' => siteUrl('xpendz/privacidad-y-seguridad') ],
+  [ 'label' => 'Descargar', 'href' => siteUrl('xpendz') . '#descargar' ],
 ];
 
 include 'includes/header-xpendz.php';

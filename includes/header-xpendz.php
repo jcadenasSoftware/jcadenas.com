@@ -16,6 +16,9 @@ require_once dirname(__DIR__).'/config.php';
 
       $reqPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
       if ($reqPath === '/xpendz.php') { $reqPath = '/xpendz'; }
+      if ($reqPath === '/xpendz-funciones.php' || $reqPath === '/funciones.php' || $reqPath === '/funciones') { $reqPath = '/xpendz/funciones'; }
+      if ($reqPath === '/xpendz-privacidad-seguridad.php' || $reqPath === '/xpendz/privacidad-y-seguridad.php' || $reqPath === '/privacidad-y-seguridad.php' || $reqPath === '/privacidad-y-seguridad') { $reqPath = '/xpendz/privacidad-y-seguridad'; }
+      if ($reqPath === '/xpendz-descargar.php' || $reqPath === '/xpendz/descargar.php' || $reqPath === '/descargar.php' || $reqPath === '/descargar') { $reqPath = '/xpendz/descargar'; }
       if ($reqPath === '/privacidad.php' || $reqPath === '/privacidad') { $reqPath = '/xpendz/privacidad'; }
       if (preg_match('~\.php/+$~i', $reqPath)) { $reqPath = preg_replace('~/+$~', '', $reqPath); }
       $canonical = siteUrl(ltrim($reqPath, '/'));

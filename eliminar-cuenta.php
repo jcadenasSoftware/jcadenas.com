@@ -9,9 +9,10 @@ $pageMainId = 'delete-account-main';
 $pageSkipTarget = '#delete-account-hero';
 $showXpendzNav = true;
 $xpendzNavLinks = [
-  [ 'label' => 'Inicio', 'href' => siteUrl('xpendz') . '#hero' ],
-  [ 'label' => 'Privacidad', 'href' => siteUrl('xpendz/privacidad') ],
-  [ 'label' => 'Eliminar cuenta', 'href' => siteUrl('xpendz/eliminar-cuenta'), 'primary' => true ],
+  [ 'label' => 'Inicio', 'href' => siteUrl('xpendz') ],
+  [ 'label' => 'Funciones', 'href' => siteUrl('xpendz/funciones') ],
+  [ 'label' => 'Privacidad y seguridad', 'href' => siteUrl('xpendz/privacidad-y-seguridad') ],
+  [ 'label' => 'Descargar', 'href' => siteUrl('xpendz') . '#descargar' ],
 ];
 
 $deleteFlowSteps = [

@@ -50,6 +50,50 @@ if (PHP_SAPI !== 'cli' && !headers_sent()) {
         $normalizedPath = '/xpendz';
     }
 
+    if ($normalizedPath === '/xpendz-funciones.php') {
+        $normalizedPath = '/xpendz/funciones';
+    }
+
+    if ($normalizedPath === '/funciones.php') {
+        $normalizedPath = '/xpendz/funciones';
+    }
+
+    if ($normalizedPath === '/funciones') {
+        $normalizedPath = '/xpendz/funciones';
+    }
+
+    if ($normalizedPath === '/xpendz-descargar.php') {
+        $normalizedPath = '/xpendz/descargar';
+    }
+
+    if ($normalizedPath === '/xpendz/descargar.php') {
+        $normalizedPath = '/xpendz/descargar';
+    }
+
+    if ($normalizedPath === '/descargar.php') {
+        $normalizedPath = '/xpendz/descargar';
+    }
+
+    if ($normalizedPath === '/descargar') {
+        $normalizedPath = '/xpendz/descargar';
+    }
+
+    if ($normalizedPath === '/xpendz-privacidad-seguridad.php') {
+        $normalizedPath = '/xpendz/privacidad-y-seguridad';
+    }
+
+    if ($normalizedPath === '/xpendz/privacidad-y-seguridad.php') {
+        $normalizedPath = '/xpendz/privacidad-y-seguridad';
+    }
+
+    if ($normalizedPath === '/privacidad-y-seguridad.php') {
+        $normalizedPath = '/xpendz/privacidad-y-seguridad';
+    }
+
+    if ($normalizedPath === '/privacidad-y-seguridad') {
+        $normalizedPath = '/xpendz/privacidad-y-seguridad';
+    }
+
     if ($normalizedPath === '/privacidad.php') {
         $normalizedPath = '/xpendz/privacidad';
     }
@@ -294,6 +338,12 @@ if (!function_exists('siteUrl')) {
         $p = trim($path, '/');
         return $p ? ($base . '/' . $p) : ($base . '/');
     }
+}
+
+// Centralized placeholder for Google Play download URL (replace before launch)
+if (!defined('XPENDZ_GOOGLE_PLAY_URL')) {
+    // TODO: Replace with the official Google Play URL before public launch
+    define('XPENDZ_GOOGLE_PLAY_URL', siteUrl('xpendz') . '#descargar');
 }
 
 // Currency formatting for Colombian Pesos
