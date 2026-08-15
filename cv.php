@@ -12,23 +12,13 @@
 <section class="section" id="cv-page">
   <div class="container container-narrow">
     <div class="cv-actions" style="display:flex; gap:.5rem; flex-wrap:wrap; justify-content:flex-end; margin-bottom:1rem;">
-      <?php
-        $pdfEs = __DIR__ . '/assets/cv/JoelCadenasCV.pdf';
-        $pdfEn = __DIR__ . '/assets/cv/Joel_Cadenas_Resume_EN.pdf';
-      ?>
-      <?php if (file_exists($pdfEs)): ?>
-        <a class="btn btn-sm cv-btn cv-btn-outline" href="<?= $base ?>/assets/cv/JoelCadenasCV.pdf" target="_blank" rel="noopener">
-          <i class="bi bi-download me-2"></i>Descargar PDF (ES)
-        </a>
-      <?php endif; ?>
-      <?php if (file_exists($pdfEn)): ?>
-        <a class="btn btn-sm cv-btn cv-btn-outline" href="<?= $base ?>/assets/cv/Joel_Cadenas_Resume_EN.pdf" target="_blank" rel="noopener">
-          <i class="bi bi-download me-2"></i>Download PDF (EN)
-        </a>
-      <?php endif; ?>
       <button class="btn btn-sm cv-btn cv-btn-solid" type="button" onclick="window.print()">
         <i class="bi bi-printer me-2"></i>Imprimir / Guardar PDF
       </button>
+    </div>
+
+    <div class="cv-print-title" style="display:none;">
+      HOJA DE VIDA
     </div>
 
     <header class="cv-header" style="display:flex; gap:1rem; justify-content:space-between; flex-wrap:wrap; align-items:flex-start; margin-bottom:1rem;">
@@ -71,30 +61,35 @@
       </div>
     </header>
 
-    <section class="cv-section" style="margin-bottom:1rem;">
+    <section class="cv-section cv-section-summary" style="margin-bottom:1rem;">
       <h2 class="cv-title">Resumen</h2>
-      <p style="margin:0;">Software Developer con experiencia en desarrollo Android (Kotlin), aplicaciones de escritorio en Java y plataformas web con backend propio. Especializado en construir soluciones end-to-end (frontend, backend y base de datos), integrando servicios cloud, autenticación segura, geolocalización y sincronización en tiempo real. Trabajo bajo buenas prácticas modernas como MVVM, Clean Architecture y principios SOLID, priorizando código mantenible, escalable y orientado a resultados.</p>
+      <p style="margin:0;">Software Developer con experiencia en desarrollo web (PHP, MySQL, JavaScript), aplicaciones Android (Kotlin) y de escritorio (Java). Especializado en desarrollo frontend y backend, Programación Orientada a Objetos y construcción de soluciones end-to-end. Experiencia en aplicaciones multiplataforma, integración de servicios cloud, autenticación, geolocalización y sincronización de datos. Trabajo con Clean Architecture, principios SOLID y Git/GitHub, orientado a desarrollar software mantenible, escalable y funcional.</p>
     </section>
 
-    <section class="cv-section" style="margin-bottom:1rem;">
+    <section class="cv-section cv-section-skills" style="margin-bottom:1rem;">
       <h2 class="cv-title">Habilidades</h2>
       <div class="cv-grid">
+        <div><strong>Lenguajes:</strong> PHP, Java, Kotlin, JavaScript</div>
+        <div><strong>Bases de datos:</strong> MySQL, SQLite</div>
         <div><strong>Android:</strong> Kotlin, Jetpack Compose, MVVM, Room, GPS</div>
-        <div><strong>Web:</strong> PHP, MySQL, HTML5, CSS3, JavaScript, Bootstrap</div>
+        <div><strong>Cloud:</strong> Firebase Authentication, Firebase Storage, sincronización</div>
+        <div><strong>Desarrollo Web:</strong> Frontend/Backend, HTML5, CSS3, Bootstrap</div>
         <div><strong>Desktop:</strong> Java, JavaFX, iReport/Jasper</div>
-        <div><strong>Cloud:</strong> Firebase Authentication, Firebase Storage, Firebase (sincronización)</div>
+        <div><strong>Herramientas:</strong> Git, GitHub, Programación Orientada a Objetos</div>
         <div><strong>Arquitectura:</strong> Clean Architecture, SOLID</div>
       </div>
     </section>
 
-    <section class="cv-section" style="margin-bottom:1rem;">
+    <section class="cv-section cv-section-projects" style="margin-bottom:1rem;">
       <h2 class="cv-title">Proyectos destacados</h2>
 
       <article class="cv-item">
         <div class="cv-item-head">
           <div>
-            <div class="cv-item-role">Mis Finanzas — Multiplataforma (Android + Desktop)</div>
+            <div class="cv-item-role">Xpendz — Multiplataforma (Android + Desktop)</div>
             <div class="cv-item-links">
+              <a href="https://jcadenas.com/xpendz" target="_blank" rel="noopener">Sitio web oficial</a>
+              <span class="sep">|</span>
               <a href="https://github.com/jcadenasSoftware/mis-finanzas-apk" target="_blank" rel="noopener">GitHub Android</a>
               <span class="sep">|</span>
               <a href="https://github.com/jcadenasSoftware/mis-finanzas-msi-Java" target="_blank" rel="noopener">GitHub Desktop</a>
@@ -103,45 +98,47 @@
           <div class="cv-item-tech">Kotlin · Compose · MVVM · Room · Firebase · JavaFX</div>
         </div>
         <ul class="cv-bullets">
-          <li>Sistema financiero multiplataforma con Android (Kotlin/Compose) y Desktop (JavaFX).</li>
-          <li>Login con Firebase Authentication y sincronización cloud con Firebase para uso multiplataforma (móvil y computador).</li>
-          <li>Módulos: cuentas, transacciones, transferencias, reportes gráficos y multiusuarios.</li>
+          <li>Ecosistema financiero que incluye aplicación Android, aplicación Desktop y sitio web oficial.</li>
+          <li>Módulos completos: cuentas, transacciones, transferencias, presupuestos, metas, préstamos, gráficos y reportes.</li>
+          <li>Autenticación segura con Firebase y sincronización cloud entre las versiones móvil y escritorio.</li>
+          <li>Actualmente en etapa de pruebas internas y proceso de publicación en Google Play.</li>
         </ul>
       </article>
 
       <article class="cv-item">
         <div class="cv-item-head">
           <div>
-            <div class="cv-item-role">Busca tu Mascota (Android) + Web informativa</div>
+            <div class="cv-item-role">Buscamos tu mascota — Android + Sitio web oficial</div>
             <div class="cv-item-links">
-              <a href="https://buscamostumascota.com" target="_blank" rel="noopener">buscamostumascota.com</a>
+              <a href="https://buscamostumascota.com" target="_blank" rel="noopener">Sitio web oficial</a>
               <span class="sep">|</span>
               <a href="https://github.com/JcadenasSoftware/lost_pets" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
-          <div class="cv-item-tech">Kotlin · Jetpack Compose · Firebase · GPS · PHP · MySQL</div>
+          <div class="cv-item-tech">Kotlin · Jetpack Compose · Firebase · Google Maps · Material 3</div>
         </div>
         <ul class="cv-bullets">
-          <li>Plataforma para publicación de mascotas perdidas/encontradas con geolocalización y mapa interactivo.</li>
-          <li>Chat en tiempo real entre usuarios y generación de códigos QR.</li>
-          <li>Autenticación segura con Firebase Authentication y sincronización de datos con Firebase.</li>
+          <li>Plataforma propia de búsqueda y recuperación de mascotas perdidas con geolocalización y Google Maps.</li>
+          <li>Desarrollada con Kotlin y Jetpack Compose, utilizando Firebase como infraestructura backend/cloud.</li>
+          <li>Sistema de mascotas perdidas/encontradas con mensajería entre usuarios, envío de archivos e imágenes, captura de fotografías desde la cámara y notificaciones push.</li>
+          <li>Generación de códigos QR asociados a la ficha de la mascota, historial médico, citas veterinarias con recordatorios y sitio web oficial actualmente en desarrollo.</li>
         </ul>
       </article>
 
       <article class="cv-item">
         <div class="cv-item-head">
           <div>
-            <div class="cv-item-role">marysbelleza.com — Web en producción</div>
+            <div class="cv-item-role">marysbelleza.com — Plataforma web en producción</div>
             <div class="cv-item-links">
               <a href="https://marysbelleza.com" target="_blank" rel="noopener">marysbelleza.com</a>
             </div>
           </div>
-          <div class="cv-item-tech">PHP · MySQL · JavaScript · Bootstrap · SEO · Analytics</div>
+          <div class="cv-item-tech">PHP · MySQL · JavaScript · Bootstrap · SEO</div>
         </div>
         <ul class="cv-bullets">
-          <li>Sitio web en producción con panel admin para gestión de contenido y publicaciones.</li>
-          <li>Sistema de interacción pública con comentarios y valoración por estrellas.</li>
-          <li>Formulario con envío de email, SEO e integración de Analytics.</li>
+          <li>Plataforma web PHP/MySQL en producción con panel administrativo para publicaciones, galería de trabajos, gestión multimedia y moderación de contenido.</li>
+          <li>Galería dinámica con fotografías, videos, comentarios públicos y valoración por estrellas.</li>
+          <li>Formulario de contacto y solicitud de citas con envío de correo mediante SMTP, integración con WhatsApp y optimización SEO.</li>
         </ul>
       </article>
 
@@ -153,74 +150,229 @@
               <a href="https://jcadenas.com" target="_blank" rel="noopener">jcadenas.com</a>
               <span class="sep">|</span>
               <a href="https://marysbelleza.com" target="_blank" rel="noopener">marysbelleza.com</a>
+              <span class="sep">|</span>
+              <a href="https://jcadenas.com/xpendz/" target="_blank" rel="noopener">Sitio web oficial de Xpendz</a>
+              <span class="sep">|</span>
+              <a href="https://buscamostumascota.com" target="_blank" rel="noopener">Sitio web oficial de Buscamos tu mascota</a>
             </div>
           </div>
           <div class="cv-item-tech">PHP · MySQL · Panel administrativo</div>
         </div>
         <ul class="cv-bullets">
-          <li>Sitios web en producción con portafolio y dashboard administrativo.</li>
-          <li>Back-end con base de datos MySQL y panel administrativo propio.</li>
+          <li>Sitios web en producción con portafolio, contenido dinámico y dashboards administrativos.</li>
+          <li>Desarrollo de back-end con PHP/MySQL y paneles administrativos propios, además de sitios web oficiales para proyectos de software.</li>
         </ul>
       </article>
 
       <article class="cv-item">
         <div class="cv-item-head">
           <div>
-            <div class="cv-item-role">Java Desktop — Sistema de inventarios</div>
+            <div class="cv-item-role">Xpendz Desktop — Aplicación financiera</div>
             <div class="cv-item-links">
-              <a href="https://github.com/jcadenasSoftware/Sistema-de-Inventarios-Java" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://github.com/jcadenasSoftware/Xpendz-msi-Java.git" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
-          <div class="cv-item-tech">Java · MySQL · iReport/Jasper</div>
+          <div class="cv-item-tech">Java · JavaFX · SQLite · Firestore · Maven</div>
         </div>
         <ul class="cv-bullets">
-          <li>Sistema contable/inventarios con generación de libros y reportes.</li>
+          <li>Aplicación financiera de escritorio para Windows integrada al ecosistema multiplataforma Xpendz.</li>
+          <li>Gestión de cuentas, transacciones, transferencias, presupuestos, metas y préstamos con persistencia local SQLite y sincronización cloud con Firestore.</li>
+          <li>Dashboard financiero con gráficos, análisis mensual y exportación CSV, interfaz JavaFX con tema claro/oscuro y distribución mediante instalador MSI.</li>
         </ul>
       </article>
     </section>
 
-    <section class="cv-section" style="margin-bottom:1rem;">
-      <h2 class="cv-title">Educación</h2>
-      <div class="cv-row">
-        <div><strong>Ingeniero en Informática</strong> — 2009 - 2015</div>
-        <div style="margin-top:.35rem;"><strong>Diplomado en Programación en Java</strong> — 2017 - 2018</div>
-      </div>
-      <div style="margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.65rem; align-items:center;">
-        <a class="cv-edu-link" href="<?= $base ?>/about.php#certificados">Ver certificados</a>
-        <div class="cv-cert-thumbs" aria-label="Certificados">
-          <button class="cv-cert-thumb" type="button" data-img="<?= $base ?>/assets/img/universidad.webp" aria-label="Ver certificado: Universidad">
-            <img src="<?= $base ?>/assets/img/universidad.webp" alt="Universidad" loading="lazy" decoding="async">
-          </button>
-          <button class="cv-cert-thumb" type="button" data-img="<?= $base ?>/assets/img/poliCol.png" aria-label="Ver certificado: Politécnico de Colombia">
-            <img src="<?= $base ?>/assets/img/poliCol.png" alt="Politécnico de Colombia" loading="lazy" decoding="async">
-          </button>
-          <button class="cv-cert-thumb" type="button" data-img="<?= $base ?>/assets/img/slim.png" aria-label="Ver certificado: Fundación Carlos Slim">
-            <img src="<?= $base ?>/assets/img/slim.png" alt="Fundación Carlos Slim" loading="lazy" decoding="async">
-          </button>
+    <section class="cv-section cv-section-education" style="margin-bottom:1rem;">
+      <h2 class="cv-title">Educación y certificaciones</h2>
+      <?php
+        $featuredTraining = [
+          [
+            'title' => 'Diplomado en Programación en Java',
+            'provider' => 'Politécnico de Colombia',
+            'year' => '2018',
+            'category_label' => 'Desarrollo',
+            'file' => 'Diplomado Programación Java.webp',
+            'url' => null,
+          ],
+          [
+            'title' => 'Administrador de Bases de Datos',
+            'provider' => 'Fundación Carlos Slim / Capacítate para el Empleo',
+            'year' => '2019',
+            'category_label' => 'Bases de datos',
+            'file' => 'Certificado Administrador de bases de datos.webp',
+            'url' => null,
+          ],
+        ];
+        $certificates = [
+          [
+            'title' => 'Git y GitHub',
+            'provider' => 'Platzi',
+            'year' => '2026',
+            'category_label' => 'Desarrollo',
+            'file' => 'Certificado Git y GitHub.webp',
+            'url' => 'https://platzi.com/p/ing.jcadenas/curso/12139-course/diploma/detalle/',
+          ],
+          [
+            'title' => 'Fundamentos de Ingeniería de Software',
+            'provider' => 'Platzi',
+            'year' => '2026',
+            'category_label' => 'Desarrollo',
+            'file' => 'Certificado Fundamentos de Ingeniería de Software.webp',
+            'url' => 'https://platzi.com/p/ing.jcadenas/curso/11997-course/diploma/detalle/',
+          ],
+          [
+            'title' => 'Fundamentos del Desarrollo Web Profesional',
+            'provider' => 'Platzi',
+            'year' => '2026',
+            'category_label' => 'Web',
+            'file' => 'Fundamentos Desarrollo web profesional.webp',
+            'url' => 'https://platzi.com/p/ing.jcadenas/ruta/30063-ruta/diploma/detalle/',
+          ],
+          [
+            'title' => 'Fundamentos de JavaScript',
+            'provider' => 'Platzi',
+            'year' => '2026',
+            'category_label' => 'Web',
+            'file' => 'Certificado Fundamentos de JavaScript.webp',
+            'url' => 'https://platzi.com/p/ing.jcadenas/curso/10266-course/diploma/detalle/',
+          ],
+          [
+            'title' => 'Fundamentos de Python',
+            'provider' => 'Platzi',
+            'year' => '2026',
+            'category_label' => 'Desarrollo',
+            'file' => 'Certificado Fundamentos de Python.webp',
+            'url' => 'https://platzi.com/p/ing.jcadenas/curso/12164-course/diploma/detalle/',
+          ],
+          [
+            'title' => 'Introducción a la Inteligencia Artificial',
+            'provider' => 'Platzi',
+            'year' => '2025',
+            'category_label' => 'IA',
+            'file' => 'Certificado Introducción a la Inteligencia Artificial.webp',
+            'url' => 'https://platzi.com/p/ing.jcadenas/curso/12286-course/diploma/detalle/',
+          ],
+        ];
+        $certBase = $base . '/assets/certificados/';
+      ?>
+      <div class="cv-edu-wrap">
+        <div class="cv-edu-block">
+          <div class="cv-subtitle">Educación formal</div>
+          <article class="cv-edu-card cv-edu-card-degree">
+            <div class="cv-degree-image">
+              <img src="<?= $certBase ?>titulo-ingeniero-informatica.webp" alt="Título de Ingeniero en Informática" loading="lazy" />
+            </div>
+            <div class="cv-edu-content">
+              <div class="cv-edu-name">Ingeniero en Informática</div>
+              <div class="cv-edu-meta">Título universitario · Venezuela</div>
+              <div class="cv-edu-inst">Universidad Politécnica Territorial de Valencia · 2015</div>
+              <div class="cv-edu-actions">
+                <button
+                  class="btn btn-sm cv-btn cv-btn-outline"
+                  type="button"
+                  data-lightbox-kind="image"
+                  data-lightbox-kicker="Educación formal"
+                  data-lightbox-title="Ingeniero en Informática"
+                  data-lightbox-subtitle="Título universitario · Venezuela"
+                  data-lightbox-img="<?= $certBase ?>titulo-ingeniero-informatica.webp"
+                  data-lightbox-url=""
+                >Ver título</button>
+              </div>
+            </div>
+          </article>
         </div>
-      </div>
 
-      <div style="margin-top:.75rem;">
-        <div style="font-weight:800;color:var(--cv-primary);margin-bottom:.25rem;">Certificados relevantes</div>
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
-          <a class="cv-chip" href="<?= $base ?>/about.php#certificados">Git y GitHub</a>
-          <a class="cv-chip" href="<?= $base ?>/about.php#certificados">Fundamentos de Python</a>
-          <a class="cv-chip" href="<?= $base ?>/about.php#certificados">Fundamentos de Ingeniería de Software</a>
-          <a class="cv-chip" href="<?= $base ?>/about.php#certificados">Introducción a la IA</a>
-          <a class="cv-chip" href="<?= $base ?>/about.php#certificados">Fundamentos de LLMs</a>
+        <div class="cv-edu-block">
+          <div class="cv-subtitle">Formación profesional</div>
+          <div class="cv-training-grid">
+            <?php foreach ($featuredTraining as $training): ?>
+              <?php $imgUrl = $certBase . rawurlencode($training['file']); ?>
+              <article class="cv-edu-card cv-edu-card-training">
+                <div class="cv-edu-card-top">
+                  <span class="cv-edu-tag"><?= htmlspecialchars($training['category_label'], ENT_QUOTES) ?></span>
+                  <span class="cv-edu-tag cv-edu-tag-soft">Formación destacada</span>
+                </div>
+                <div class="cv-edu-name"><?= htmlspecialchars($training['title'], ENT_QUOTES) ?></div>
+                <div class="cv-edu-inst"><?= htmlspecialchars($training['provider'], ENT_QUOTES) ?> · <?= htmlspecialchars($training['year'], ENT_QUOTES) ?></div>
+                <div class="cv-edu-actions">
+                  <button
+                    class="btn btn-sm cv-btn cv-btn-outline"
+                    type="button"
+                    data-lightbox-kind="image"
+                    data-lightbox-kicker="Formación profesional"
+                    data-lightbox-title="<?= htmlspecialchars($training['title'], ENT_QUOTES) ?>"
+                    data-lightbox-subtitle="<?= htmlspecialchars($training['provider'] . ' · ' . $training['year'], ENT_QUOTES) ?>"
+                    data-lightbox-img="<?= htmlspecialchars($imgUrl, ENT_QUOTES) ?>"
+                    data-lightbox-url="<?= htmlspecialchars($training['url'] ?? '', ENT_QUOTES) ?>"
+                  >Ver certificado</button>
+                </div>
+              </article>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+        <div class="cv-edu-block">
+          <div class="cv-subtitle">Certificaciones técnicas</div>
+          <div class="cv-cert-grid">
+            <?php foreach ($certificates as $certificate): ?>
+              <?php $imgUrl = $certBase . rawurlencode($certificate['file']); ?>
+              <article class="cv-cert-card">
+                <div class="cv-cert-card-top">
+                  <span class="cv-cert-category"><?= htmlspecialchars($certificate['category_label'], ENT_QUOTES) ?></span>
+                </div>
+                <div class="cv-cert-name"><?= htmlspecialchars($certificate['title'], ENT_QUOTES) ?></div>
+                <div class="cv-cert-provider"><?= htmlspecialchars($certificate['provider'], ENT_QUOTES) ?> · <?= htmlspecialchars($certificate['year'], ENT_QUOTES) ?></div>
+                <div class="cv-cert-actions">
+                  <button
+                    class="btn btn-sm cv-btn cv-btn-outline"
+                    type="button"
+                    data-lightbox-kind="image"
+                    data-lightbox-kicker="<?= htmlspecialchars($certificate['category_label'], ENT_QUOTES) ?>"
+                    data-lightbox-title="<?= htmlspecialchars($certificate['title'], ENT_QUOTES) ?>"
+                    data-lightbox-subtitle="<?= htmlspecialchars($certificate['provider'] . ' · ' . $certificate['year'], ENT_QUOTES) ?>"
+                    data-lightbox-img="<?= htmlspecialchars($imgUrl, ENT_QUOTES) ?>"
+                    data-lightbox-url="<?= htmlspecialchars($certificate['url'] ?? '', ENT_QUOTES) ?>"
+                  >Ver certificado</button>
+                </div>
+              </article>
+            <?php endforeach; ?>
+          </div>
+          <div style="margin-top:.75rem; text-align:right;">
+            <a href="<?= $base ?>/about.php#certificados" class="cv-link-all">Ver todas las certificaciones →</a>
+          </div>
         </div>
       </div>
 
       <div class="cv-lightbox" id="cv-lightbox" aria-hidden="true">
         <div class="cv-lightbox-backdrop" data-close="1"></div>
-        <div class="cv-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Certificado">
+        <div class="cv-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Certificado o título">
           <button class="cv-lightbox-close" type="button" data-close="1" aria-label="Cerrar">×</button>
-          <img class="cv-lightbox-img" alt="Certificado" src="" decoding="async">
+          <div class="cv-lightbox-head">
+            <div class="cv-lightbox-kicker" id="cv-lightbox-kicker"></div>
+            <div class="cv-lightbox-title" id="cv-lightbox-title"></div>
+            <div class="cv-lightbox-sub" id="cv-lightbox-sub"></div>
+          </div>
+          <div class="cv-lightbox-body">
+            <img class="cv-lightbox-img" id="cv-lightbox-img" alt="" src="" decoding="async">
+            <div class="cv-lightbox-placeholder" id="cv-lightbox-placeholder" hidden>
+              <div class="cv-degree-placeholder cv-degree-placeholder-modal">
+                <span class="cv-degree-badge">Mock</span>
+                <span class="cv-degree-icon"><i class="bi bi-file-earmark-lock"></i></span>
+                <div class="cv-degree-text" id="cv-lightbox-placeholder-title">Mock temporal del título</div>
+                <p class="cv-degree-copy" id="cv-lightbox-placeholder-copy">La versión pública protegida se incorporará posteriormente.</p>
+                <code class="cv-degree-file" id="cv-lightbox-placeholder-file">assets/img/titulo-ingeniero-informatica.jpg</code>
+              </div>
+            </div>
+          </div>
+          <div class="cv-lightbox-actions">
+            <a class="btn btn-sm cv-btn cv-btn-outline" id="cv-lightbox-open" href="#" target="_blank" rel="noopener" style="display:none;">Abrir imagen</a>
+            <a class="btn btn-sm cv-btn cv-btn-solid" id="cv-lightbox-credential" href="#" target="_blank" rel="noopener" style="display:none;">Ver credencial</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="cv-section" style="margin-bottom:1rem;">
+    <section class="cv-section cv-section-languages" style="margin-bottom:1rem;">
       <h2 class="cv-title">Idiomas</h2>
       <div class="cv-grid">
         <div><strong>Español:</strong> Nativo</div>
@@ -270,21 +422,51 @@
   #cv-page .cv-bullets{margin:.5rem 0 0 1.1rem;}
   #cv-page .cv-bullets li{margin:.15rem 0;}
 
-  #cv-page .cv-edu-link{font-weight:800;text-decoration:underline;text-underline-offset:2px;}
-  #cv-page .cv-cert-thumbs{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;}
-  #cv-page .cv-cert-thumb{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:.65rem;border:1px solid rgba(15,23,42,.12);background:#fff;box-shadow:0 .2rem .6rem rgba(15,23,42,.06);overflow:hidden;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;padding:0;cursor:pointer;}
-  #cv-page .cv-cert-thumb:hover{transform:translateY(-2px);box-shadow:0 .45rem 1.1rem rgba(15,23,42,.12);border-color:rgba(37,99,235,.28);}
-  #cv-page .cv-cert-thumb img{max-width:100%;max-height:100%;object-fit:contain;}
-
-  #cv-page .cv-chip{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .6rem;border-radius:999px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.22);color:var(--cv-accent);font-weight:800;text-decoration:none;font-size:.9rem;line-height:1.2;}
-  #cv-page .cv-chip:hover{background:rgba(37,99,235,.16);border-color:rgba(37,99,235,.35);text-decoration:none;}
-
+  #cv-page .cv-edu-wrap{display:grid;gap:1rem;}
+  #cv-page .cv-edu-block{display:grid;gap:.75rem;}
+  #cv-page .cv-subtitle{font-size:.82rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--cv-primary-2);}
+  #cv-page .cv-edu-card{border:1px solid rgba(15,23,42,.08);border-radius:.9rem;background:#fff;box-shadow:var(--cv-shadow);padding:1rem;display:grid;gap:1rem;align-items:start;}
+  #cv-page .cv-edu-card-degree{grid-template-columns:minmax(180px, 240px) 1fr;}
+  #cv-page .cv-training-grid{display:grid;grid-template-columns:1fr;gap:.75rem;}
+  @media(min-width:768px){#cv-page .cv-training-grid{grid-template-columns:1fr 1fr;}}
+  #cv-page .cv-edu-card-top,#cv-page .cv-cert-card-top{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+  #cv-page .cv-edu-tag,#cv-page .cv-cert-category,#cv-page .cv-cert-flag{display:inline-flex;align-items:center;justify-content:center;padding:.23rem .55rem;border-radius:999px;font-size:.77rem;font-weight:800;line-height:1.2;border:1px solid rgba(37,99,235,.20);}
+  #cv-page .cv-edu-tag,#cv-page .cv-cert-category{background:rgba(37,99,235,.10);color:var(--cv-accent);}
+  #cv-page .cv-edu-tag-soft,#cv-page .cv-cert-flag{background:rgba(15,23,42,.06);color:var(--cv-primary-2);border-color:rgba(15,23,42,.10);}
+  #cv-page .cv-edu-content{display:grid;gap:.45rem;align-self:center;}
+  #cv-page .cv-edu-name{font-size:1.08rem;font-weight:800;color:var(--cv-primary);line-height:1.3;}
+  #cv-page .cv-edu-meta{font-weight:700;color:#495057;}
+  #cv-page .cv-edu-inst,#cv-page .cv-cert-provider{color:#6c757d;font-weight:600;line-height:1.5;}
+  #cv-page .cv-edu-note{margin:0;color:#6c757d;font-size:.95rem;line-height:1.6;}
+  #cv-page .cv-edu-actions,#cv-page .cv-cert-actions,#cv-page .cv-lightbox-actions{display:flex;gap:.5rem;flex-wrap:wrap;}
+  #cv-page .cv-degree-placeholder{min-height:210px;border:1px dashed rgba(37,99,235,.28);border-radius:1rem;background:linear-gradient(180deg, rgba(37,99,235,.06) 0%, rgba(248,250,252,.95) 100%);display:grid;place-items:center;text-align:center;padding:1rem;color:var(--cv-primary);position:relative;overflow:hidden;}
+  #cv-page .cv-degree-placeholder::after{content:"";position:absolute;inset:auto -12% -22% auto;width:140px;height:140px;border-radius:50%;background:rgba(37,99,235,.08);}
+  #cv-page .cv-degree-image{min-height:210px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(15,23,42,.08);border-radius:1rem;background:#fff;overflow:hidden;}
+  #cv-page .cv-degree-image img{display:block;max-width:100%;max-height:300px;width:auto;height:auto;object-fit:contain;}
+  #cv-page .cv-degree-badge{position:absolute;top:.8rem;left:.8rem;display:inline-flex;padding:.24rem .55rem;border-radius:999px;background:rgba(37,99,235,.12);color:var(--cv-accent);font-size:.76rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;}
+  #cv-page .cv-degree-icon{font-size:2.2rem;color:var(--cv-accent);margin-bottom:.5rem;display:block;}
+  #cv-page .cv-degree-text{font-weight:800;line-height:1.45;position:relative;z-index:1;}
+  #cv-page .cv-degree-copy{margin:0;color:#6c757d;line-height:1.6;max-width:32rem;}
+  #cv-page .cv-degree-file{display:inline-block;margin-top:.2rem;padding:.3rem .55rem;border-radius:.55rem;background:#f8fafc;border:1px solid rgba(15,23,42,.08);color:var(--cv-primary-2);font-size:.85rem;word-break:break-all;}
+  #cv-page .cv-cert-grid{display:grid;grid-template-columns:1fr;gap:.75rem;}
+  @media(min-width:768px){#cv-page .cv-cert-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}}
+  #cv-page .cv-cert-card{border:1px solid rgba(15,23,42,.08);border-radius:.9rem;background:#fff;box-shadow:var(--cv-shadow);padding:.9rem;display:grid;gap:.75rem;align-content:start;}
+  #cv-page .cv-cert-name{font-weight:800;color:var(--cv-primary);line-height:1.4;}
+  #cv-page .cv-link-all{font-weight:700;color:var(--cv-accent);text-decoration:none;font-size:.92rem;}
+  #cv-page .cv-link-all:hover{text-decoration:underline;}
   #cv-page .cv-lightbox{position:fixed;inset:0;z-index:1080;display:none;align-items:center;justify-content:center;padding:1.25rem;}
   #cv-page .cv-lightbox.is-open{display:flex;}
   #cv-page .cv-lightbox-backdrop{position:absolute;inset:0;background:rgba(2,6,23,.72);backdrop-filter:blur(2px);}
-  #cv-page .cv-lightbox-dialog{position:relative;z-index:1;max-width:min(940px, 96vw);max-height:92vh;background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 1rem 3rem rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);}
-  #cv-page .cv-lightbox-img{display:block;max-width:96vw;max-height:92vh;width:auto;height:auto;}
-  #cv-page .cv-lightbox-close{position:absolute;top:.4rem;right:.55rem;border:0;background:rgba(15,23,42,.85);color:#fff;width:38px;height:38px;border-radius:999px;display:grid;place-items:center;font-size:1.4rem;line-height:1;}
+  #cv-page .cv-lightbox-dialog{position:relative;z-index:1;width:min(980px, 96vw);max-height:92vh;background:#fff;border-radius:1rem;overflow:auto;box-shadow:0 1rem 3rem rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);padding:1rem;display:grid;gap:1rem;}
+  #cv-page .cv-lightbox-head{padding-right:2.75rem;display:grid;gap:.2rem;}
+  #cv-page .cv-lightbox-kicker{font-size:.8rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--cv-accent);}
+  #cv-page .cv-lightbox-title{font-size:1.15rem;font-weight:800;color:var(--cv-primary);line-height:1.3;}
+  #cv-page .cv-lightbox-sub{color:#6c757d;font-weight:600;}
+  #cv-page .cv-lightbox-body{display:grid;place-items:center;min-height:240px;}
+  #cv-page .cv-lightbox-img{display:block;max-width:100%;max-height:65vh;width:auto;height:auto;border-radius:.8rem;border:1px solid rgba(15,23,42,.08);background:#fff;}
+  #cv-page .cv-lightbox-placeholder{width:100%;}
+  #cv-page .cv-degree-placeholder-modal{min-height:300px;}
+  #cv-page .cv-lightbox-close{position:absolute;top:.7rem;right:.7rem;border:0;background:rgba(15,23,42,.85);color:#fff;width:38px;height:38px;border-radius:999px;display:grid;place-items:center;font-size:1.4rem;line-height:1;}
 
   @media (max-width: 575.98px){
     .cv-hero{min-height:22vh !important;}
@@ -300,6 +482,11 @@
     #cv-page .cv-contact-item{padding:.5rem .6rem;}
     #cv-page .cv-title{font-size:.95rem;}
     #cv-page .cv-section{padding:.8rem .9rem;}
+    #cv-page .cv-edu-card-degree{grid-template-columns:1fr;}
+    #cv-page .cv-degree-placeholder{min-height:180px;}
+    #cv-page .cv-edu-actions .cv-btn,
+    #cv-page .cv-cert-actions .cv-btn,
+    #cv-page .cv-lightbox-actions .cv-btn{width:100%;}
   }
 
   #cv-page .cv-contact-grid{display:grid;grid-template-columns:1fr;gap:.45rem;}
@@ -317,19 +504,105 @@
   #cv-page .cv-section:hover,
   #cv-page .cv-item:hover{transform:translateY(-3px);box-shadow:0 .6rem 1.4rem rgba(15,23,42,.10);border-color:rgba(37,99,235,.22);}
 
+  @page{
+    size:A4;
+    margin:9mm 10mm;
+  }
+
   @media print{
+    html, body{
+      background:#fff !important;
+      color:#000 !important;
+      font-size:10pt;
+      line-height:1.32;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
     nav, footer, .cv-actions, .cv-hero{display:none !important;}
-    #cv-page{background:#fff !important;}
-    body{color:#000;}
-    a{text-decoration:none; color:#000;}
-    #cv-page .cv-header, #cv-page .cv-section, #cv-page .cv-item{box-shadow:none !important;border-color:#ddd !important;transform:none !important;}
-    #cv-page .cv-contact-item{box-shadow:none !important;transform:none !important;border-color:#ddd !important;}
-    #cv-page .cv-item{break-inside:avoid; page-break-inside:avoid;}
-    #cv-page .cv-cert-thumbs{display:none !important;}
-    #cv-page .cv-lightbox{display:none !important;}
-    #cv-page .cv-chip{display:none !important;}
-    .section{padding:0 !important;}
-    .container{max-width:none !important; padding:0 !important;}
+    #cv-page,
+    .section,
+    .container{background:#fff !important; padding:0 !important; margin:0 !important;}
+    #cv-page .container{max-width:none !important; padding-top:0 !important;}
+    a{color:#000 !important; text-decoration:none !important;}
+    #cv-page p{margin:0 !important; line-height:1.38 !important; color:#000 !important;}
+    #cv-page .cv-header,
+    #cv-page .cv-section,
+    #cv-page .cv-item,
+    #cv-page .cv-edu-card,
+    #cv-page .cv-cert-card,
+    #cv-page .cv-contact-item{box-shadow:none !important; transform:none !important;}
+    #cv-page .cv-header,
+    #cv-page .cv-section,
+    #cv-page .cv-item,
+    #cv-page .cv-edu-card,
+    #cv-page .cv-cert-card{border:1px solid #d8dee8 !important; border-radius:0 !important; break-inside:avoid; page-break-inside:avoid;}
+    #cv-page .cv-lightbox,
+    #cv-page .cv-edu-actions,
+    #cv-page .cv-cert-actions,
+    #cv-page .cv-item-links,
+    #cv-page .cv-edu-note,
+    #cv-page .cv-contact-ico,
+    #cv-page .cv-contact-label{display:none !important;}
+
+    #cv-page .cv-print-title{display:block !important; font-size:13pt; font-weight:800; text-transform:uppercase; letter-spacing:.08em; margin:0 0 3mm 0; text-align:center; color:#000;}
+
+    #cv-page .cv-header{
+      display:grid !important;
+      grid-template-columns:1.1fr 1fr;
+      gap:2mm 4mm;
+      padding:3mm 4mm !important;
+      margin:0 0 2mm 0 !important;
+    }
+    #cv-page .cv-header h1{font-size:19pt !important; line-height:1.05 !important; margin:0 0 0.8mm 0 !important;}
+    #cv-page .cv-header .text-muted{font-size:9.5pt !important; line-height:1.2 !important; margin-top:0 !important;}
+    #cv-page .cv-contact{min-width:0 !important; width:auto !important; font-size:8.8pt !important;}
+    #cv-page .cv-contact-grid{grid-template-columns:1fr 1fr !important; gap:0.8mm 3.5mm !important;}
+    #cv-page .cv-contact-item{padding:0 !important; border:0 !important; background:none !important; display:block !important;}
+    #cv-page .cv-contact-value{font-size:8.8pt !important; font-weight:600 !important; line-height:1.18 !important;}
+
+    #cv-page .cv-section{padding:2.8mm 3.5mm !important; margin:0 0 2mm 0 !important;}
+    #cv-page .cv-section + .cv-section{margin-top:0 !important;}
+    #cv-page .cv-title{font-size:8.4pt !important; margin:0 0 1.5mm 0 !important; letter-spacing:.08em !important; break-after:avoid-page; page-break-after:avoid;}
+    #cv-page .cv-title::before{width:6px; height:6px; box-shadow:none !important;}
+    #cv-page .cv-grid{grid-template-columns:1fr 1fr !important; gap:0.8mm 3.5mm !important;}
+    #cv-page .cv-section-summary p{font-size:8.9pt !important;}
+    #cv-page .cv-section-skills .cv-grid,
+    #cv-page .cv-section-languages .cv-grid{font-size:8.8pt !important;}
+
+    #cv-page .cv-item{padding:2.2mm 3mm !important; margin:1.5mm 0 0 0 !important;}
+    #cv-page .cv-item-head{gap:0.8mm 3.5mm !important; margin-bottom:0.6mm !important;}
+    #cv-page .cv-item-role{font-size:9.2pt !important; line-height:1.18 !important;}
+    #cv-page .cv-item-tech{font-size:8.2pt !important; line-height:1.18 !important;}
+    #cv-page .cv-bullets{margin:0.1rem 0 0 .85rem !important; font-size:8.4pt !important;}
+    #cv-page .cv-bullets li{margin:0 !important; line-height:1.2 !important;}
+
+    #cv-page .cv-edu-wrap{gap:2mm !important;}
+    #cv-page .cv-edu-block{gap:1.5mm !important; break-inside:avoid; page-break-inside:avoid;}
+    #cv-page .cv-subtitle{font-size:7.5pt !important; letter-spacing:.08em !important;}
+    #cv-page .cv-edu-card,
+    #cv-page .cv-cert-card{padding:2mm 3mm !important; gap:1.2mm !important;}
+    #cv-page .cv-edu-card-degree{grid-template-columns:1fr !important; gap:1.5mm !important;}
+    #cv-page .cv-degree-placeholder{display:none !important;}
+    #cv-page .cv-degree-image{display:none !important;}
+    #cv-page .cv-edu-name{font-size:9pt !important; line-height:1.18 !important;}
+    #cv-page .cv-edu-meta{font-size:8.5pt !important;}
+    #cv-page .cv-edu-inst,
+    #cv-page .cv-cert-provider{font-size:8.2pt !important; line-height:1.2 !important; color:#333 !important;}
+    #cv-page .cv-training-grid,
+    #cv-page .cv-cert-grid{grid-template-columns:1fr 1fr !important; gap:1.5mm 2.5mm !important;}
+    #cv-page .cv-edu-card-top,
+    #cv-page .cv-cert-card-top{justify-content:flex-start !important; gap:1mm !important;}
+    #cv-page .cv-edu-tag,
+    #cv-page .cv-edu-tag-soft,
+    #cv-page .cv-cert-category{padding:0 4px !important; font-size:6.5pt !important; border-color:#d8dee8 !important; background:none !important; color:#000 !important;}
+    #cv-page .cv-cert-name{font-size:8.6pt !important; line-height:1.2 !important;}
+    #cv-page .cv-link-all{display:block !important; margin-top:1mm !important; font-size:7.5pt !important; text-align:right !important; color:#000 !important;}
+
+    #cv-page .cv-section,
+    #cv-page .cv-item,
+    #cv-page .cv-edu-card,
+    #cv-page .cv-cert-card{orphans:3; widows:3;}
+    #cv-page .cv-section-languages{break-before:avoid-page; page-break-before:avoid;}
   }
 </style>
 
@@ -337,27 +610,85 @@
   (function(){
     var lb = document.getElementById('cv-lightbox');
     if(!lb) return;
-    var img = lb.querySelector('.cv-lightbox-img');
-    var open = function(src){
-      img.src = src;
+
+    var img = document.getElementById('cv-lightbox-img');
+    var kicker = document.getElementById('cv-lightbox-kicker');
+    var title = document.getElementById('cv-lightbox-title');
+    var sub = document.getElementById('cv-lightbox-sub');
+    var placeholder = document.getElementById('cv-lightbox-placeholder');
+    var placeholderTitle = document.getElementById('cv-lightbox-placeholder-title');
+    var placeholderCopy = document.getElementById('cv-lightbox-placeholder-copy');
+    var placeholderFile = document.getElementById('cv-lightbox-placeholder-file');
+    var openLink = document.getElementById('cv-lightbox-open');
+    var credentialLink = document.getElementById('cv-lightbox-credential');
+
+    var showModal = function(){
       lb.classList.add('is-open');
       lb.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     };
-    var close = function(){
+
+    var resetModal = function(){
+      img.src = '';
+      img.alt = '';
+      img.hidden = true;
+      placeholder.hidden = true;
+      kicker.textContent = '';
+      title.textContent = '';
+      sub.textContent = '';
+      placeholderTitle.textContent = '';
+      placeholderCopy.textContent = '';
+      placeholderFile.textContent = '';
+      openLink.style.display = 'none';
+      credentialLink.style.display = 'none';
+      openLink.href = '#';
+      credentialLink.href = '#';
+    };
+
+    var closeModal = function(){
       lb.classList.remove('is-open');
       lb.setAttribute('aria-hidden', 'true');
-      img.src = '';
       document.body.style.overflow = '';
+      resetModal();
     };
-    document.querySelectorAll('#cv-page .cv-cert-thumb[data-img]').forEach(function(btn){
-      btn.addEventListener('click', function(){ open(btn.getAttribute('data-img')); });
+
+    var openFromButton = function(btn){
+      resetModal();
+      kicker.textContent = btn.getAttribute('data-lightbox-kicker') || '';
+      title.textContent = btn.getAttribute('data-lightbox-title') || '';
+      sub.textContent = btn.getAttribute('data-lightbox-subtitle') || '';
+
+      if(btn.getAttribute('data-lightbox-kind') === 'placeholder'){
+        placeholder.hidden = false;
+        placeholderTitle.textContent = btn.getAttribute('data-placeholder-title') || '';
+        placeholderCopy.textContent = btn.getAttribute('data-placeholder-copy') || '';
+        placeholderFile.textContent = btn.getAttribute('data-placeholder-file') || '';
+        showModal();
+        return;
+      }
+
+      var imageSrc = btn.getAttribute('data-lightbox-img') || '';
+      var credentialUrl = btn.getAttribute('data-lightbox-url') || '';
+      img.src = imageSrc;
+      img.alt = btn.getAttribute('data-lightbox-title') || '';
+      img.hidden = false;
+      openLink.href = imageSrc;
+      openLink.style.display = imageSrc ? '' : 'none';
+      credentialLink.href = credentialUrl || '#';
+      credentialLink.style.display = credentialUrl ? '' : 'none';
+      showModal();
+    };
+
+    document.querySelectorAll('#cv-page [data-lightbox-kind]').forEach(function(btn){
+      btn.addEventListener('click', function(){ openFromButton(btn); });
     });
+
     lb.addEventListener('click', function(e){
-      if(e.target && e.target.getAttribute('data-close') === '1') close();
+      if(e.target && e.target.getAttribute('data-close') === '1') closeModal();
     });
+
     document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      if(e.key === 'Escape' && lb.classList.contains('is-open')) closeModal();
     });
   })();
 </script>
