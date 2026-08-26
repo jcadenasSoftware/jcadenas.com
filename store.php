@@ -81,7 +81,7 @@ if($id){
                class="btn btn-accent btn-lg">
               <i class="bi bi-chat-dots me-2"></i>Solicitar Cotización
             </a>
-            <a href="https://wa.me/573177564861?text=<?= rawurlencode('Hola, me interesa un proyecto web similar a: ' . $proyecto['titulo']) ?>" 
+            <a href="https://wa.me/573187488738?text=<?= rawurlencode('Hola, me interesa un proyecto web similar a: ' . $proyecto['titulo']) ?>" 
                target="_blank" 
                class="btn btn-success btn-lg">
               <i class="bi bi-whatsapp me-2"></i>Consultar por WhatsApp
@@ -98,7 +98,7 @@ if($id){
             <a href="#payment-methods" class="btn btn-accent btn-lg smooth-link">
               <i class="bi bi-cart-check me-2"></i>Comprar Ahora
             </a>
-            <a href="https://wa.me/573177564861?text=<?= rawurlencode('Hola, tengo dudas sobre: ' . $proyecto['titulo']) ?>" 
+            <a href="https://wa.me/573187488738?text=<?= rawurlencode('Hola, tengo dudas sobre: ' . $proyecto['titulo']) ?>" 
                target="_blank" 
                class="btn btn-outline-success">
               <i class="bi bi-whatsapp me-2"></i>Consultar
@@ -213,7 +213,7 @@ if($id){
             <p class="text-muted mb-3">
               Por seguridad, te compartiremos los datos de la plataforma que elijas por WhatsApp.
             </p>
-            <a href="https://wa.me/573177564861?text=<?= rawurlencode('Hola, quiero comprar: ' . $proyecto['titulo'] . '. ¿Cuáles son los datos para transferir?') ?>" 
+            <a href="https://wa.me/573187488738?text=<?= rawurlencode('Hola, quiero comprar: ' . $proyecto['titulo'] . '. ¿Cuáles son los datos para transferir?') ?>" 
                target="_blank" 
                class="btn btn-success btn-lg">
               <i class="bi bi-whatsapp me-2"></i>Solicitar Datos por WhatsApp

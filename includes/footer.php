@@ -10,7 +10,7 @@
                 <div class="col-md-4">
                     <h5 class="fw-bold mb-2">Contacto</h5>
                     <ul class="list-unstyled small mb-0">
-                        <li class="mb-1 text-nowrap"><i class="bi bi-whatsapp me-2"></i>+57 317 756 4861</li>
+                        <li class="mb-1 text-nowrap"><i class="bi bi-whatsapp me-2"></i>+57 318 748 8738</li>
                         <li class="mb-1 text-nowrap"><i class="bi bi-envelope me-2"></i><a href="mailto:servicios@jcadenas.com" class="text-light text-decoration-none">servicios@jcadenas.com</a></li>
                     </ul>
                 </div>
@@ -20,7 +20,7 @@
                         <a href="https://facebook.com/" class="text-light" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
                         <a href="https://instagram.com/" class="text-light" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
                         <a href="https://www.linkedin.com/" class="text-light" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://wa.me/573177564861" class="text-light" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://wa.me/573187488738" class="text-light" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
             </div>

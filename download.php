@@ -373,7 +373,7 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
   echo '<i class="bi bi-house"></i>';
   echo 'Ir al Inicio';
   echo '</a>';
-  echo '<a href="https://wa.me/573012345678?text=Hola,%20necesito%20ayuda%20con%20mi%20descarga" class="secondary-btn" target="_blank">';
+  echo '<a href="https://wa.me/573187488738?text=Hola,%20necesito%20ayuda%20con%20mi%20descarga" class="secondary-btn" target="_blank">';
   echo '<i class="bi bi-whatsapp"></i>';
   echo 'Soporte WhatsApp';
   echo '</a>';
@@ -393,7 +393,7 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
   echo '<a href="mailto:servicios@jcadenas.com" style="color: #0066cc; text-decoration: none;">';
   echo '<i class="bi bi-envelope me-1"></i>servicios@jcadenas.com';
   echo '</a>';
-  echo '<a href="https://wa.me/573012345678" style="color: #25d366; text-decoration: none;" target="_blank">';
+  echo '<a href="https://wa.me/573187488738" style="color: #25d366; text-decoration: none;" target="_blank">';
   echo '<i class="bi bi-whatsapp me-1"></i>WhatsApp';
   echo '</a>';
   echo '<a href="'.htmlspecialchars($portfolio).'" style="color: #6f42c1; text-decoration: none;">';

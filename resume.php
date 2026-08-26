@@ -36,11 +36,11 @@
               <span class="cv-contact-value">ing.jcadenas@gmail.com</span>
             </span>
           </a>
-          <a class="cv-contact-item" href="https://wa.me/573177564861" target="_blank" rel="noopener">
+          <a class="cv-contact-item" href="https://wa.me/573187488738" target="_blank" rel="noopener">
             <span class="cv-contact-ico"><i class="bi bi-whatsapp"></i></span>
             <span class="cv-contact-text">
               <span class="cv-contact-label">WhatsApp</span>
-              <span class="cv-contact-value">+57 317 756 4861</span>
+              <span class="cv-contact-value">+57 318 748 8738</span>
             </span>
           </a>
           <a class="cv-contact-item" href="https://github.com/jcadenasSoftware" target="_blank" rel="noopener">

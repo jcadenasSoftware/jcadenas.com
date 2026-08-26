@@ -73,7 +73,7 @@ if($id){
             <a href="#payment-section" class="btn btn-primary btn-lg">
               <i class="bi bi-cart-check me-2"></i>Comprar Ahora
             </a>
-            <a href="https://wa.me/573177564861?text=<?= rawurlencode('Hola, tengo dudas sobre: ' . $proyecto['titulo']) ?>" 
+            <a href="https://wa.me/573187488738?text=<?= rawurlencode('Hola, tengo dudas sobre: ' . $proyecto['titulo']) ?>" 
                target="_blank" class="btn btn-outline-success btn-lg">
               <i class="bi bi-whatsapp me-2"></i>Consultar
             </a>
@@ -164,7 +164,7 @@ if($id){
               </div>
               <h5 class="payment-card-title"><?= $metodo['name'] ?></h5>
               <p class="payment-card-desc"><?= $metodo['desc'] ?></p>
-              <a href="https://wa.me/573177564861?text=<?= rawurlencode('Hola, quiero pagar con ' . $metodo['name'] . ' el proyecto: ' . $proyecto['titulo']) ?>" 
+              <a href="https://wa.me/573187488738?text=<?= rawurlencode('Hola, quiero pagar con ' . $metodo['name'] . ' el proyecto: ' . $proyecto['titulo']) ?>" 
                  target="_blank" 
                  class="btn btn-outline-<?= $metodo['color'] ?> w-100">
                 <i class="bi bi-whatsapp me-2"></i>Solicitar Datos

@@ -10,8 +10,8 @@ if (!function_exists('electricistaSectionData')) {
         }
 
         $basePath = 'electricista';
-        $whatsappNumber = '573177564861';
-        $whatsappDisplay = '+57 317 756 4861';
+        $whatsappNumber = '573187488738';
+        $whatsappDisplay = '+57 318 748 8738';
         $heroImage = 'assets/img/electricista/hero/hero-electricista.webp';
 
         $services = [
@@ -95,7 +95,7 @@ if (!function_exists('electricistaSectionData')) {
             'base_path' => $basePath,
             'whatsapp_number' => $whatsappNumber,
             'whatsapp_display' => $whatsappDisplay,
-            'whatsapp_e164' => '+573177564861',
+            'whatsapp_e164' => '+573187488738',
             'whatsapp_message_general' => 'Hola Joel, vi tu página de servicios eléctricos y quiero solicitar información.',
             'hero_image' => $heroImage,
             'default_og_image' => 'assets/img/electricista/og/electricista-home-og.webp',

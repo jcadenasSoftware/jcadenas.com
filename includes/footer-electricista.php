@@ -13,7 +13,7 @@
                 <a href="<?= htmlspecialchars(electricistaPageUrl(), ENT_QUOTES) ?>#cobertura">Cobertura</a>
             </nav>
             <p class="electricista-footer-contact">
-                <a href="<?= htmlspecialchars(electricistaWhatsappUrl(), ENT_QUOTES) ?>" target="_blank" rel="noopener"><?= htmlspecialchars(electricistaData('whatsapp_display') ?: '+57 317 756 4861', ENT_QUOTES) ?></a>
+                <a href="<?= htmlspecialchars(electricistaWhatsappUrl(), ENT_QUOTES) ?>" target="_blank" rel="noopener"><?= htmlspecialchars(electricistaData('whatsapp_display') ?: '+57 318 748 8738', ENT_QUOTES) ?></a>
             </p>
             <p class="electricista-footer-contact">
                 <a href="mailto:servicios@jcadenas.com">servicios@jcadenas.com</a>

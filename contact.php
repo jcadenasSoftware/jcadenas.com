@@ -29,7 +29,7 @@
           <div class="card-body">
             <h5 class="card-title mb-3"><i class="bi bi-whatsapp me-2 text-success"></i>WhatsApp</h5>
             <p class="small text-muted">Atención preferente por WhatsApp.</p>
-            <a class="btn btn-success btn-sm btn-icon" target="_blank" href="https://wa.me/573177564861?text=Hola%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto"><i class="bi bi-whatsapp"></i> Escríbeme</a>
+            <a class="btn btn-success btn-sm btn-icon" target="_blank" href="https://wa.me/573187488738?text=Hola%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto"><i class="bi bi-whatsapp"></i> Escríbeme</a>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
               <a href="https://facebook.com/" class="btn btn-outline-secondary btn-sm btn-icon" target="_blank" rel="noopener"><i class="bi bi-facebook"></i> Facebook</a>
               <a href="https://instagram.com/" class="btn btn-outline-secondary btn-sm btn-icon" target="_blank" rel="noopener"><i class="bi bi-instagram"></i> Instagram</a>
               <a href="https://www.linkedin.com/" class="btn btn-outline-secondary btn-sm btn-icon" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a>
-              <a href="https://wa.me/573177564861" class="btn btn-outline-success btn-sm btn-icon" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+              <a href="https://wa.me/573187488738" class="btn btn-outline-success btn-sm btn-icon" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
             </div>
           </div>
         </div>
