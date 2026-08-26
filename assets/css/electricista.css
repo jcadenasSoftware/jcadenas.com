@@ -1,0 +1,1605 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
+}
+
+.electricista-page {
+    --electricista-bg: #08101b;
+    --electricista-surface: #0f1a2b;
+    --electricista-surface-soft: #132238;
+    --electricista-primary: #1f7aff;
+    --electricista-text: #edf3ff;
+    --electricista-muted: #9fb0c9;
+    --electricista-accent: #25d366;
+    --electricista-border: rgba(159, 176, 201, 0.2);
+    --electricista-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #08101b 0%, #0b1220 100%);
+    color: var(--electricista-text);
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+.electricista-page * {
+    box-sizing: border-box;
+}
+
+.electricista-page img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.electricista-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.electricista-page button,
+.electricista-page input,
+.electricista-page textarea,
+.electricista-page select {
+    font: inherit;
+}
+
+.electricista-shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+}
+
+.electricista-skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 1000;
+    padding: 0.85rem 1rem;
+    background: #ffffff;
+    color: #08101b;
+    border-radius: 999px;
+    transition: top 0.2s ease;
+}
+
+.electricista-skip-link:focus {
+    top: 1rem;
+}
+
+.electricista-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    background: rgba(8, 16, 27, 0.88);
+    border-bottom: 1px solid rgba(159, 176, 201, 0.14);
+}
+
+.electricista-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 86px;
+}
+
+.electricista-brand {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.electricista-brand-picture {
+    display: block;
+}
+
+.electricista-brand-image {
+    display: block;
+    width: clamp(190px, 19vw, 255px);
+    height: auto;
+}
+
+.electricista-nav-list,
+.electricista-mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.electricista-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.electricista-nav-link,
+.electricista-mobile-nav-link,
+.electricista-button {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.electricista-nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    color: var(--electricista-muted);
+    font-size: 0.98rem;
+}
+
+.electricista-nav-link:hover,
+.electricista-nav-link:focus-visible {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.electricista-nav-link.is-active,
+.electricista-mobile-nav-link.is-active,
+.electricista-footer-nav a.is-active {
+    color: #ffffff;
+    background: rgba(31, 122, 255, 0.16);
+    border-color: rgba(31, 122, 255, 0.25);
+}
+
+.electricista-nav-link--cta,
+.electricista-mobile-nav-link--cta,
+.electricista-button--primary,
+.electricista-button--service {
+    background: var(--electricista-accent);
+    color: #04110b;
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    font-weight: 700;
+}
+
+.electricista-nav-link--cta:hover,
+.electricista-nav-link--cta:focus-visible,
+.electricista-mobile-nav-link--cta:hover,
+.electricista-mobile-nav-link--cta:focus-visible,
+.electricista-button--primary:hover,
+.electricista-button--primary:focus-visible,
+.electricista-button--service:hover,
+.electricista-button--service:focus-visible {
+    background: #38e37b;
+    transform: translateY(-1px);
+}
+
+.electricista-menu-toggle {
+    display: none;
+    border: 1px solid var(--electricista-border);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 14px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: #ffffff;
+}
+
+.electricista-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+}
+
+.electricista-mobile-menu {
+    display: none;
+    border-top: 1px solid rgba(159, 176, 201, 0.12);
+    background: rgba(8, 16, 27, 0.98);
+}
+
+body.electricista-menu-open {
+    overflow: hidden;
+}
+
+.electricista-mobile-menu.is-open {
+    display: block;
+}
+
+.electricista-mobile-nav {
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+    padding: 0.35rem 0 0.75rem;
+}
+
+.electricista-mobile-nav-list {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.electricista-mobile-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.62rem 0.95rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    text-align: center;
+}
+
+.electricista-mobile-nav-link:hover,
+.electricista-mobile-nav-link:focus-visible {
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.electricista-mobile-nav-link.is-active {
+    background: rgba(31, 122, 255, 0.16);
+    color: #ffffff;
+}
+
+.electricista-hero,
+.electricista-section,
+.electricista-footer {
+    position: relative;
+}
+
+.electricista-section--conversion {
+    scroll-margin-top: 92px;
+}
+
+.electricista-hero {
+    padding: 5rem 0 4.5rem;
+    background: linear-gradient(90deg, rgba(8, 16, 27, 0.98) 0%, rgba(8, 16, 27, 0.94) 40%, rgba(11, 18, 32, 0.7) 100%);
+}
+
+.electricista-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: clamp(1.25rem, 2.4vw, 2.5rem);
+    align-items: stretch;
+}
+
+.electricista-service-card,
+.electricista-benefit-card,
+.electricista-work-card,
+.electricista-footer-grid {
+    border: 1px solid rgba(159, 176, 201, 0.12);
+    box-shadow: none;
+}
+
+.electricista-hero-copy {
+    background: transparent;
+    padding: clamp(0.5rem, 1.4vw, 1rem) 0;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    min-height: 100%;
+    display: grid;
+    align-content: center;
+    justify-items: start;
+}
+
+.electricista-eyebrow {
+    margin: 0 0 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7cc3ff;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.electricista-hero-title,
+.electricista-section-title,
+.electricista-footer-title {
+    margin: 0;
+    line-height: 1.05;
+}
+
+.electricista-hero-name {
+    margin: 0;
+    color: #dce7fb;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.electricista-hero-title {
+    font-size: clamp(3rem, 5.4vw, 5.8rem);
+    line-height: 1.04;
+    max-width: none;
+}
+
+.electricista-hero-title span {
+    display: block;
+}
+
+.electricista-hero-subtitle {
+    margin: 1rem 0 0;
+    color: #ffffff;
+    font-size: clamp(1.1rem, 1.55vw, 1.35rem);
+    line-height: 1.7;
+    max-width: 37rem;
+}
+
+.electricista-section-copy,
+.electricista-service-copy,
+.electricista-benefit-card p,
+.electricista-footer-copy,
+.electricista-coverage-card p,
+.electricista-work-card p,
+.electricista-request-steps,
+.electricista-hero-highlights,
+.electricista-footer-site,
+.electricista-footer-contact,
+.electricista-footer-copyright {
+    color: var(--electricista-muted);
+}
+
+.electricista-hero-note {
+    margin: 1rem 0 0;
+}
+
+.electricista-hero-actions,
+.electricista-service-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.electricista-hero-actions {
+    margin-top: 1.6rem;
+    align-items: center;
+}
+
+.electricista-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 56px;
+    padding: 0.95rem 1.35rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 0.98rem;
+}
+
+.electricista-button--secondary {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--electricista-border);
+}
+
+.electricista-button--secondary:hover,
+.electricista-button--secondary:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.electricista-hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.8rem 0 0;
+}
+
+.electricista-hero-highlights li {
+    padding: 0.72rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+    color: #dce7fb;
+    font-size: 0.96rem;
+}
+
+.electricista-hero-visual {
+    min-width: 0;
+    display: flex;
+}
+
+.electricista-hero-frame {
+    background: radial-gradient(circle at top right, rgba(31, 122, 255, 0.12), transparent 44%), rgba(15, 26, 43, 0.78);
+    border-radius: 0;
+    padding: 0;
+    min-height: clamp(580px, 62vw, 840px);
+    width: 100%;
+    overflow: hidden;
+    border: 0;
+    box-shadow: none;
+}
+
+.electricista-hero-image {
+    width: 100%;
+    height: 100%;
+    min-height: clamp(580px, 62vw, 840px);
+    object-fit: cover;
+    object-position: center right;
+    border-radius: 0;
+}
+
+.electricista-hero-placeholder,
+.electricista-work-placeholder,
+.electricista-service-placeholder {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-radius: 32px;
+    border: 1px dashed rgba(124, 195, 255, 0.28);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.electricista-hero-placeholder {
+    min-height: clamp(580px, 62vw, 840px);
+    padding: 2rem;
+    gap: 0.5rem;
+    color: #dce7fb;
+}
+
+.electricista-hero-placeholder-icon {
+    font-size: 2.5rem;
+}
+
+.electricista-section {
+    padding: 4.25rem 0;
+}
+
+.electricista-section--alt {
+    background: transparent;
+}
+
+.electricista-section--coverage {
+    padding-bottom: 3rem;
+}
+
+.electricista-section-heading {
+    display: grid;
+    gap: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.electricista-section-title {
+    font-size: clamp(2.35rem, 3.7vw, 4rem);
+    line-height: 1.08;
+    max-width: 16ch;
+}
+
+.electricista-services-grid,
+.electricista-benefits-grid,
+.electricista-work-grid,
+.electricista-coverage-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.electricista-services-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.55rem;
+}
+
+.electricista-works-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: end;
+}
+
+.electricista-works-intro-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.electricista-work-empty {
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border: 1px solid rgba(159, 176, 201, 0.12);
+    border-radius: 28px;
+    background: rgba(15, 26, 43, 0.78);
+}
+
+.electricista-works-grid,
+.electricista-work-gallery-grid {
+    display: grid;
+    gap: 1.3rem;
+}
+
+.electricista-works-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.electricista-work-archive-card,
+.electricista-work-gallery-card {
+    border: 1px solid rgba(159, 176, 201, 0.12);
+    background: rgba(15, 26, 43, 0.82);
+    border-radius: 28px;
+}
+
+.electricista-work-archive-card {
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.electricista-work-archive-media {
+    display: block;
+    padding: 1rem 1rem 0;
+}
+
+.electricista-work-archive-media img,
+.electricista-work-gallery-card img,
+.electricista-work-detail-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.electricista-work-archive-media img,
+.electricista-work-gallery-card img {
+    border-radius: 18px;
+}
+
+.electricista-work-archive-body {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.15rem 1.1rem 1.3rem;
+}
+
+.electricista-work-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.75rem;
+}
+
+.electricista-work-meta--secondary {
+    color: var(--electricista-muted);
+    font-size: 0.92rem;
+}
+
+.electricista-work-meta--secondary span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.34rem;
+}
+
+.electricista-work-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #edf3ff;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.electricista-work-chip--featured {
+    background: rgba(31, 122, 255, 0.16);
+    color: #96c7ff;
+}
+
+.electricista-work-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+    gap: clamp(1.4rem, 3vw, 2.4rem);
+    align-items: start;
+}
+
+.electricista-work-detail-copy {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+}
+
+.electricista-work-detail-media img {
+    border-radius: 28px;
+}
+
+.electricista-work-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.electricista-work-gallery-card {
+    margin: 0;
+    padding: 0.95rem;
+}
+
+.electricista-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.electricista-pagination-pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.electricista-pagination-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--electricista-border);
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.electricista-pagination-link.is-active,
+.electricista-pagination-link:hover,
+.electricista-pagination-link:focus-visible {
+    background: rgba(31, 122, 255, 0.16);
+    border-color: rgba(31, 122, 255, 0.4);
+}
+
+.electricista-service-card,
+.electricista-benefit-card,
+.electricista-work-card,
+.electricista-footer-grid {
+    background: rgba(15, 26, 43, 0.82);
+    border-radius: 28px;
+}
+
+.electricista-service-card {
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100%;
+}
+
+.electricista-service-media {
+    display: block;
+    padding: 1.1rem 1.1rem 0;
+}
+
+.electricista-service-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 0;
+}
+
+.electricista-service-media--panel img {
+    object-position: center right;
+}
+
+.electricista-service-media--security img {
+    object-position: center center;
+}
+
+.electricista-service-media--network img {
+    object-position: center center;
+}
+
+.electricista-service-media--ups img {
+    object-position: center center;
+}
+
+.electricista-service-placeholder {
+    min-height: 240px;
+    font-size: 2.4rem;
+    color: #ffffff;
+}
+
+.electricista-service-body {
+    display: grid;
+    gap: 1rem;
+    padding: 1.35rem 1.3rem 1.45rem;
+}
+
+.electricista-service-included {
+    display: none;
+}
+
+.electricista-service-included-toggle {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 46px;
+    padding: 0.72rem 0.9rem;
+    border-radius: 16px;
+    border: 1px solid rgba(159, 176, 201, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+    color: #edf3ff;
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.electricista-service-included-icon {
+    transition: transform 0.2s ease;
+}
+
+.electricista-service-included-panel {
+    display: block;
+}
+
+.electricista-service-included-panel-inner {
+    padding: 0.9rem 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(159, 176, 201, 0.12);
+}
+
+.electricista-service-included-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #dce7fb;
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.electricista-service-included-list li {
+    display: flex;
+    gap: 0.45rem;
+}
+
+.electricista-service-included-list li::before {
+    content: '•';
+    color: var(--electricista-primary);
+    flex: 0 0 auto;
+}
+
+.electricista-service-included.is-open .electricista-service-included-icon {
+    transform: rotate(45deg);
+}
+
+.electricista-service-title,
+.electricista-benefit-card h3 {
+    margin: 0;
+    font-size: 1.42rem;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.electricista-service-copy {
+    margin: 0;
+    font-size: 1.03rem;
+    line-height: 1.6;
+}
+
+.electricista-benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 2rem;
+}
+
+.electricista-benefit-card,
+.electricista-work-card {
+    padding: 0;
+}
+
+.electricista-benefit-card {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding-top: 0.25rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(124, 195, 255, 0.24);
+}
+
+.electricista-benefit-card p {
+    margin: 0.45rem 0 0;
+}
+
+.electricista-work-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.electricista-work-placeholder {
+    min-height: 230px;
+    margin-bottom: 1rem;
+    color: #dce7fb;
+    font-weight: 700;
+}
+
+.electricista-coverage-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: start;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    border-radius: 32px;
+    background: linear-gradient(135deg, rgba(15, 26, 43, 0.95), rgba(10, 18, 31, 0.92));
+    border: 1px solid rgba(159, 176, 201, 0.14);
+}
+
+.electricista-coverage-copy {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.electricista-coverage-label {
+    margin: 0;
+    color: var(--electricista-muted);
+    font-size: 0.98rem;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.68rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(159, 176, 201, 0.14);
+}
+
+.electricista-contact-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    border-radius: 32px;
+    background: linear-gradient(135deg, rgba(15, 26, 43, 0.97), rgba(10, 18, 31, 0.95));
+    border: 1px solid rgba(159, 176, 201, 0.18);
+    box-shadow: var(--electricista-shadow);
+}
+
+.electricista-conversion-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    border-radius: 32px;
+    background: linear-gradient(135deg, rgba(15, 26, 43, 0.97), rgba(10, 18, 31, 0.95));
+    border: 1px solid rgba(159, 176, 201, 0.18);
+    box-shadow: var(--electricista-shadow);
+}
+
+.electricista-contact-copy {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.electricista-conversion-copy {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.electricista-conversion-badge {
+    margin: 0;
+    color: var(--electricista-muted);
+    font-size: 0.98rem;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.68rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(159, 176, 201, 0.14);
+}
+
+.electricista-conversion-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.electricista-contact-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.electricista-button--contact {
+    min-width: min(100%, 320px);
+    min-height: 62px;
+    font-size: 1.03rem;
+    padding-inline: 1.5rem;
+}
+
+.electricista-footer-grid {
+    background: linear-gradient(135deg, rgba(15, 26, 43, 0.84), rgba(10, 18, 31, 0.9));
+    border: 1px solid rgba(159, 176, 201, 0.1);
+    border-radius: 32px;
+    padding: 1.5rem 1.6rem;
+}
+
+.electricista-footer {
+    padding: 0 0 1.65rem;
+}
+
+.electricista-footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 0.45rem;
+    padding: 1.1rem 1.2rem;
+    text-align: center;
+}
+
+.electricista-footer-meta {
+    display: grid;
+    justify-items: center;
+    gap: 0.4rem;
+    text-align: center;
+    width: 100%;
+}
+
+.electricista-footer-brand {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+}
+
+.electricista-footer-brand img {
+    display: block;
+    width: clamp(180px, 22vw, 280px);
+    height: auto;
+}
+
+.electricista-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.9rem;
+    justify-content: center;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.electricista-footer-nav a {
+    color: #dce7fb;
+}
+
+.electricista-footer-nav a.is-active {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.electricista-footer-nav a:hover,
+.electricista-footer-nav a:focus-visible,
+.electricista-footer-contact a:hover,
+.electricista-footer-contact a:focus-visible {
+    color: #ffffff;
+}
+
+.electricista-footer-site {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #edf3ff;
+}
+
+.electricista-footer-meta .electricista-footer-contact,
+.electricista-footer-meta .electricista-footer-copyright {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    text-align: center;
+    margin-inline: auto;
+}
+
+.electricista-footer-meta .electricista-footer-copyright {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #f7fbff;
+    padding: 0.12rem 0 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: inherit;
+    text-align: center;
+    user-select: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.electricista-footer-meta .electricista-footer-copyright:hover,
+.electricista-footer-meta .electricista-footer-copyright:focus-visible {
+    color: #ffffff;
+}
+
+.electricista-footer-meta .electricista-footer-copyright,
+.electricista-footer-meta .electricista-footer-copyright:hover,
+.electricista-footer-meta .electricista-footer-copyright:focus-visible,
+.electricista-footer-meta .electricista-footer-copyright:active {
+    background: transparent !important;
+}
+
+@media (max-width: 1100px) {
+    .electricista-services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .electricista-works-grid,
+    .electricista-work-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .electricista-benefits-grid,
+    .electricista-work-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .electricista-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .electricista-hero-frame,
+    .electricista-hero-image,
+    .electricista-hero-placeholder {
+        min-height: 580px;
+    }
+}
+
+@media (max-width: 900px) {
+    .electricista-nav--desktop {
+        display: none;
+    }
+
+    .electricista-menu-toggle {
+        display: inline-flex;
+    }
+
+    .electricista-hero-grid,
+    .electricista-work-detail-grid,
+    .electricista-coverage-panel,
+    .electricista-footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .electricista-works-intro {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .electricista-works-intro-actions {
+        justify-content: flex-start;
+    }
+
+    .electricista-hero {
+        padding-top: 2rem;
+        padding-bottom: 2.25rem;
+    }
+
+    .electricista-hero-frame,
+    .electricista-hero-image,
+    .electricista-hero-placeholder {
+        min-height: 380px;
+    }
+
+    .electricista-conversion-panel,
+    .electricista-contact-panel {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        border-radius: 24px;
+    }
+
+    .electricista-conversion-actions,
+    .electricista-contact-actions {
+        justify-content: stretch;
+    }
+
+    .electricista-button--contact {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .electricista-shell {
+        width: min(100% - 1.25rem, 1180px);
+    }
+
+    .electricista-header-inner {
+        min-height: 74px;
+    }
+
+    html {
+        scroll-padding-top: 80px;
+    }
+
+    .electricista-brand-image {
+        width: clamp(86px, 28vw, 120px);
+    }
+
+    .electricista-services-grid,
+    .electricista-benefits-grid,
+    .electricista-work-grid,
+    .electricista-works-grid,
+    .electricista-work-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.95rem;
+    }
+
+    .electricista-hero-copy,
+    .electricista-hero-frame,
+    .electricista-service-card,
+    .electricista-benefit-card,
+    .electricista-work-card,
+    .electricista-footer-grid {
+        border-radius: 20px;
+    }
+
+    .electricista-hero {
+        padding-top: 1.45rem;
+        padding-bottom: 1.65rem;
+    }
+
+    .electricista-hero-copy {
+        padding: 1.15rem 0;
+    }
+
+    .electricista-hero-title {
+        font-size: clamp(2.05rem, 9vw, 3rem);
+    }
+
+    .electricista-hero-subtitle {
+        margin-top: 0.8rem;
+        font-size: 1.02rem;
+        line-height: 1.55;
+        max-width: 34rem;
+    }
+
+    .electricista-mobile-nav {
+        width: min(1180px, calc(100% - 1.1rem));
+        padding: 0.25rem 0 0.6rem;
+    }
+
+    .electricista-mobile-nav-list {
+        gap: 0.36rem;
+    }
+
+    .electricista-mobile-nav-link {
+        min-height: 40px;
+        padding: 0.55rem 0.9rem;
+        border-radius: 14px;
+        font-size: 0.96rem;
+    }
+
+    .electricista-section-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        max-width: none;
+    }
+
+    .electricista-work-empty,
+    .electricista-work-archive-card,
+    .electricista-work-gallery-card {
+        border-radius: 20px;
+    }
+
+    .electricista-work-detail-media img {
+        border-radius: 20px;
+    }
+
+    .electricista-button,
+    .electricista-button--service {
+        width: 100%;
+        min-height: 50px;
+    }
+
+    .electricista-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+    }
+
+    .electricista-hero-actions .electricista-button {
+        width: 100%;
+    }
+
+    .electricista-hero-highlights {
+        flex-direction: column;
+    }
+
+    .electricista-mobile-nav-link {
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 680px) {
+    .electricista-service-actions {
+        flex-direction: column;
+    }
+
+    .electricista-pagination {
+        align-items: stretch;
+    }
+
+    .electricista-pagination > .electricista-button,
+    .electricista-pagination-pages {
+        width: 100%;
+    }
+
+    .electricista-work-meta--secondary {
+        font-size: 0.88rem;
+    }
+
+    .electricista-service-included {
+        display: grid;
+        gap: 0.65rem;
+        margin-top: 0.1rem;
+    }
+
+    .electricista-service-included-toggle {
+        display: flex;
+    }
+
+    .electricista-service-included-panel {
+        display: block;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+        transition: max-height 0.24s ease, opacity 0.18s ease, margin-top 0.18s ease;
+    }
+
+    .electricista-service-included.is-open .electricista-service-included-panel {
+        max-height: 240px;
+        opacity: 1;
+        margin-top: 0.35rem;
+    }
+
+    .electricista-service-included-panel-inner {
+        padding: 0.78rem 0.85rem;
+        border-radius: 14px;
+    }
+
+    .electricista-service-included-list {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+        font-size: 0.88rem;
+        line-height: 1.35;
+    }
+
+    .electricista-service-included-list li {
+        gap: 0.35rem;
+    }
+
+    .electricista-service-included.is-open .electricista-service-included-icon {
+        transform: rotate(45deg);
+    }
+
+    .electricista-hero-highlights {
+        flex-direction: column;
+    }
+
+    .electricista-mobile-nav-link {
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 520px) {
+    .electricista-hero-grid {
+        gap: 0.7rem;
+    }
+
+    .electricista-hero-copy {
+        padding: 1.05rem 0;
+    }
+
+    .electricista-hero-frame,
+    .electricista-hero-image,
+    .electricista-hero-placeholder {
+        min-height: 220px;
+    }
+
+    .electricista-service-body,
+    .electricista-benefit-card,
+    .electricista-work-card,
+    .electricista-footer-grid {
+        padding: 0.92rem;
+    }
+
+    .electricista-benefit-card {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+
+    .electricista-section {
+        padding: 1.85rem 0;
+    }
+
+    .electricista-section-heading {
+        margin-bottom: 0.85rem;
+    }
+
+    .electricista-conversion-panel,
+    .electricista-contact-panel,
+    .electricista-footer-grid {
+        padding: 0.9rem;
+    }
+
+    .electricista-footer-brand img {
+        width: clamp(190px, 60vw, 280px);
+    }
+
+    .electricista-conversion-badge {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .electricista-footer-nav {
+        flex-direction: column;
+        gap: 0.45rem;
+    }
+
+    .electricista-footer-site,
+    .electricista-footer-contact,
+    .electricista-footer-copyright {
+        font-size: 0.92rem;
+    }
+
+    .electricista-service-media {
+        padding: 0.72rem 0.72rem 0;
+    }
+
+    .electricista-service-media img {
+        aspect-ratio: 4 / 3;
+        border-radius: 12px;
+    }
+
+    .electricista-service-media--panel img,
+    .electricista-service-media--security img,
+    .electricista-service-media--network img,
+    .electricista-service-media--ups img {
+        object-position: center center;
+    }
+
+    .electricista-service-placeholder {
+        min-height: 150px;
+        font-size: 1.7rem;
+    }
+
+    .electricista-service-body {
+        gap: 0.6rem;
+        padding: 0.85rem 0.85rem 0.95rem;
+    }
+
+    .electricista-service-title,
+    .electricista-benefit-card h3 {
+        font-size: 1.08rem;
+    }
+
+    .electricista-service-copy,
+    .electricista-benefit-card p,
+    .electricista-section-copy {
+        font-size: 0.92rem;
+        line-height: 1.42;
+    }
+
+    .electricista-button--service {
+        min-height: 46px;
+        font-size: 0.9rem;
+    }
+
+    .electricista-benefits-grid {
+        gap: 0.65rem;
+    }
+
+    .electricista-benefit-card p {
+        margin-top: 0.3rem;
+    }
+
+    .electricista-conversion-panel,
+    .electricista-contact-panel {
+        gap: 0.7rem;
+        padding: 1rem;
+    }
+
+    .electricista-button--contact {
+        min-height: 52px;
+        font-size: 0.95rem;
+    }
+
+}
+
+@media (max-width: 390px) {
+    .electricista-hero {
+        padding-top: 1.15rem;
+        padding-bottom: 1.35rem;
+    }
+
+    .electricista-hero-grid {
+        gap: 0.55rem;
+    }
+
+    .electricista-hero-copy {
+        padding: 0.9rem 0;
+    }
+
+    .electricista-hero-title {
+        font-size: clamp(1.95rem, 8.8vw, 2.8rem);
+        line-height: 1.01;
+        text-wrap: balance;
+    }
+
+    .electricista-hero-subtitle {
+        margin-top: 0.68rem;
+        font-size: 0.98rem;
+        line-height: 1.48;
+    }
+
+    .electricista-hero-actions {
+        margin-top: 0.9rem;
+        gap: 0.55rem;
+    }
+
+    .electricista-hero-highlights {
+        margin-top: 0.85rem;
+        gap: 0.45rem;
+    }
+
+    .electricista-hero-highlights li {
+        padding: 0.5rem 0.72rem;
+        font-size: 0.84rem;
+    }
+
+    .electricista-hero-frame,
+    .electricista-hero-image,
+    .electricista-hero-placeholder {
+        min-height: 190px;
+    }
+
+    .electricista-services-grid,
+    .electricista-benefits-grid,
+    .electricista-work-grid {
+        gap: 0.55rem;
+    }
+
+    .electricista-service-card {
+        border-radius: 18px;
+    }
+
+    .electricista-service-media {
+        padding: 0.62rem 0.62rem 0;
+    }
+
+    .electricista-service-media img {
+        aspect-ratio: 16 / 10;
+        border-radius: 11px;
+    }
+
+    .electricista-service-media--panel img,
+    .electricista-service-media--security img,
+    .electricista-service-media--network img,
+    .electricista-service-media--ups img {
+        object-position: center center;
+    }
+
+    .electricista-service-placeholder {
+        min-height: 132px;
+        font-size: 1.5rem;
+    }
+
+    .electricista-service-body {
+        gap: 0.5rem;
+        padding: 0.72rem 0.72rem 0.82rem;
+    }
+
+    .electricista-service-title,
+    .electricista-benefit-card h3 {
+        font-size: 1.02rem;
+        line-height: 1.12;
+        text-wrap: balance;
+    }
+
+    .electricista-service-copy {
+        font-size: 0.88rem;
+        line-height: 1.38;
+    }
+
+    .electricista-service-included-toggle {
+        min-height: 44px;
+        padding: 0.64rem 0.78rem;
+        font-size: 0.88rem;
+    }
+
+    .electricista-service-actions {
+        gap: 0.5rem;
+    }
+
+    .electricista-button--service {
+        min-height: 44px;
+        font-size: 0.88rem;
+        padding-inline: 0.95rem;
+    }
+
+    .electricista-benefits-grid {
+        gap: 0.5rem;
+    }
+
+    .electricista-benefit-card {
+        padding-top: 0.1rem;
+        padding-right: 0.7rem;
+        padding-left: 0.7rem;
+    }
+
+    .electricista-benefit-card p {
+        margin-top: 0.25rem;
+        font-size: 0.89rem;
+        line-height: 1.43;
+    }
+
+    .electricista-section {
+        padding: 1.55rem 0;
+    }
+
+    .electricista-section-heading {
+        gap: 0.5rem;
+        margin-bottom: 0.72rem;
+    }
+
+    .electricista-section-title {
+        font-size: clamp(1.5rem, 8vw, 2.15rem);
+        line-height: 1.06;
+    }
+
+    .electricista-section-copy {
+        font-size: 0.9rem;
+        line-height: 1.42;
+    }
+
+    .electricista-section--conversion {
+        padding-bottom: 1.35rem;
+    }
+
+    .electricista-conversion-panel {
+        gap: 0.48rem;
+        padding: 0.9rem;
+    }
+
+    .electricista-conversion-badge {
+        padding: 0.44rem 0.68rem;
+        font-size: 0.88rem;
+    }
+
+    .electricista-contact-panel {
+        gap: 0.55rem;
+        padding: 0.88rem;
+    }
+
+    .electricista-button--contact {
+        min-height: 50px;
+        font-size: 0.92rem;
+        padding-inline: 1rem;
+    }
+
+    .electricista-footer {
+        padding-bottom: 1.2rem;
+    }
+
+    .electricista-footer-grid {
+        padding: 0.72rem;
+        gap: 0.32rem;
+    }
+
+    .electricista-footer-brand img {
+        width: clamp(160px, 62vw, 220px);
+    }
+
+    .electricista-footer-nav {
+        gap: 0.25rem 0.7rem;
+    }
+
+    .electricista-footer-site,
+    .electricista-footer-contact,
+    .electricista-footer-copyright {
+        font-size: 0.86rem;
+        line-height: 1.3;
+    }
+}

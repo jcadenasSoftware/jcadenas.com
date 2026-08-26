@@ -18,3 +18,13 @@ if (!defined('SMTP_PORT')) { define('SMTP_PORT', 465); }
 if (!defined('SMTP_SECURE')) { define('SMTP_SECURE', 'ssl'); }
 if (!defined('SMTP_USER')) { define('SMTP_USER', 'servicios@jcadenas.com'); }
 if (!defined('SMTP_PASS')) { define('SMTP_PASS', 'YOUR_SMTP_PASSWORD'); }
+
+// Electricista works database credentials
+if (!defined('ELECTRICISTA_DB_HOST')) { define('ELECTRICISTA_DB_HOST', 'localhost'); }
+if (!defined('ELECTRICISTA_DB_PORT')) { define('ELECTRICISTA_DB_PORT', 3306); }
+if (!defined('ELECTRICISTA_DB_NAME')) { define('ELECTRICISTA_DB_NAME', 'u775031495_electricista'); }
+if (!defined('ELECTRICISTA_DB_USER')) { define('ELECTRICISTA_DB_USER', 'u775031495_electricista'); }
+if (!defined('ELECTRICISTA_DB_PASS')) { define('ELECTRICISTA_DB_PASS', 'YOUR_ELECTRICISTA_DB_PASSWORD'); }
+
+// One-time setup token for the first Electricista admin user
+if (!defined('ELECTRICISTA_ADMIN_SETUP_TOKEN')) { define('ELECTRICISTA_ADMIN_SETUP_TOKEN', 'CHANGE_ME_TO_A_LONG_RANDOM_SETUP_TOKEN'); }

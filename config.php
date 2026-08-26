@@ -7,7 +7,7 @@
 $host = $_SERVER['HTTP_HOST'] ?? '';
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 
-if (str_contains($host, 'localhost') || str_contains($host, '127.0.0.1')) {
+if (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false) {
     $base = '/jcadenas';
     if (!defined('SITE_BASE_URL')) {
         define('SITE_BASE_URL', $protocol . $host . $base);
@@ -34,8 +34,9 @@ if (PHP_SAPI !== 'cli' && !headers_sent()) {
     $query = $qs ? ('?' . $qs) : '';
 
     $normalizedPath = $path;
+    $skipTrailingSlashCanonicalization = preg_match('~^/admin/electricista(?:/|$)~i', $path) === 1;
 
-    if ($normalizedPath !== '/') {
+    if (!$skipTrailingSlashCanonicalization && $normalizedPath !== '/') {
         $normalizedPath = rtrim($normalizedPath, '/');
         if ($normalizedPath === '') {
             $normalizedPath = '/';
