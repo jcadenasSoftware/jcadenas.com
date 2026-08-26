@@ -33,6 +33,18 @@ define('SECURE_DOWNLOAD_BASE', '/home/u123456789/secure_downloads');  // ⚠️ 
 // define('PAYPAL_CLIENT_ID', 'TU_CLIENT_ID_REAL');
 // define('PAYPAL_CLIENT_SECRET', 'TU_SECRET_REAL');
 
+// ========== ELECTRICISTA MYSQL (REQUERIDO PARA TRABAJOS) ==========
+// Base de datos independiente del módulo /electricista
+define('ELECTRICISTA_DB_HOST', 'localhost');
+define('ELECTRICISTA_DB_PORT', 3306);
+define('ELECTRICISTA_DB_NAME', 'u775031495_electricista');
+define('ELECTRICISTA_DB_USER', 'u775031495_electricista');
+define('ELECTRICISTA_DB_PASS', 'TU_PASSWORD_MYSQL_REAL');
+
+// Token temporal para crear el primer administrador desde /admin/electricista/setup.php
+// Debe ser una cadena larga y aleatoria. Ejemplo: openssl rand -hex 32
+define('ELECTRICISTA_ADMIN_SETUP_TOKEN', 'CAMBIA_ESTE_TOKEN_DE_CONFIGURACION');
+
 // ========== APP SECRET (RECOMENDADO) ==========
 // Cambiar por una clave aleatoria de 32 bytes
 // Puedes generar una con: openssl rand -hex 32

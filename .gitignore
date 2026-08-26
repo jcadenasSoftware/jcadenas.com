@@ -1,6 +1,7 @@
 # Configuración sensible - NO SUBIR A GITHUB
 config.local.php
 config.local.new.php
+config.local - copia.php
 
 # Archivos temporales de Word
 ~$*.docx

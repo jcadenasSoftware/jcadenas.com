@@ -29,4 +29,8 @@ RewriteRule ^descargar/?$ xpendz/descargar [R=301,L]
 RewriteRule ^descargar\.php$ xpendz/descargar [R=301,L]
 RewriteRule ^xpendz/descargar\.php$ xpendz/descargar [R=301,L]
 
+RewriteRule ^electricista/trabajos/?$ electricista-trabajos.php [L,QSA]
+RewriteRule ^electricista/trabajos/([^/]+)/?$ electricista-trabajo.php?slug=$1 [L,QSA]
+RewriteRule ^electricista/?$ electricista.php [L]
+
 RewriteRule ^sitemap\.xml$ sitemap.php [L]
