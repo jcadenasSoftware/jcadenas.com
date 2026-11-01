@@ -30,15 +30,15 @@ if (!defined('ELECTRICISTA_UPLOADS_BASE')) {
 }
 
 if (!defined('ELECTRICISTA_MAX_IMAGE_BYTES')) {
-    define('ELECTRICISTA_MAX_IMAGE_BYTES', 8 * 1024 * 1024);
+    define('ELECTRICISTA_MAX_IMAGE_BYTES', 32 * 1024 * 1024);
 }
 
-if (!defined('ELECTRICISTA_ALLOWED_IMAGE_MIME')) {
-    define('ELECTRICISTA_ALLOWED_IMAGE_MIME', [
-        'image/jpeg' => 'jpg',
-        'image/png' => 'png',
-        'image/webp' => 'webp',
-    ]);
+if (!defined('ELECTRICISTA_MAX_IMAGE_DIMENSION')) {
+    define('ELECTRICISTA_MAX_IMAGE_DIMENSION', 2048);
+}
+
+if (!defined('ELECTRICISTA_JPEG_QUALITY')) {
+    define('ELECTRICISTA_JPEG_QUALITY', 85);
 }
 
 if (!function_exists('electricistaAdminUrl')) {
@@ -434,54 +434,213 @@ if (!function_exists('electricistaWorkUploadDirectory')) {
     }
 }
 
+if (!function_exists('electricistaUploadErrorMessage')) {
+    function electricistaUploadErrorMessage(int $errorCode, string $filename = ''): string {
+        $label = $filename !== '' ? sprintf('«%s»', $filename) : 'El archivo';
+        switch ($errorCode) {
+            case UPLOAD_ERR_INI_SIZE:
+            case UPLOAD_ERR_FORM_SIZE:
+                return sprintf('%s supera el tamaño máximo permitido por el servidor.', $label);
+            case UPLOAD_ERR_PARTIAL:
+                return sprintf('%s se subió de forma incompleta. Intenta nuevamente.', $label);
+            case UPLOAD_ERR_NO_TMP_DIR:
+            case UPLOAD_ERR_CANT_WRITE:
+                return 'El servidor no pudo guardar el archivo temporal de la subida.';
+            case UPLOAD_ERR_EXTENSION:
+                return 'El servidor bloqueó la subida del archivo.';
+            case UPLOAD_ERR_NO_FILE:
+            default:
+                return sprintf('%s no se recibió correctamente.', $label);
+        }
+    }
+}
+
+if (!function_exists('electricistaNormalizeImageWithImagick')) {
+    function electricistaNormalizeImageWithImagick(string $sourcePath, string $targetPath): ?array {
+        if (!extension_loaded('imagick')) {
+            return null;
+        }
+
+        $image = new Imagick();
+        try {
+            if (!$image->readImage($sourcePath)) {
+                return null;
+            }
+            $image->setIteratorIndex(0);
+
+            switch ($image->getImageOrientation()) {
+                case Imagick::ORIENTATION_TOPRIGHT:
+                    $image->flopImage();
+                    break;
+                case Imagick::ORIENTATION_BOTTOMRIGHT:
+                    $image->rotateImage('#ffffff', 180);
+                    break;
+                case Imagick::ORIENTATION_BOTTOMLEFT:
+                    $image->flopImage();
+                    $image->rotateImage('#ffffff', 180);
+                    break;
+                case Imagick::ORIENTATION_LEFTTOP:
+                    $image->flopImage();
+                    $image->rotateImage('#ffffff', -90);
+                    break;
+                case Imagick::ORIENTATION_RIGHTTOP:
+                    $image->rotateImage('#ffffff', 90);
+                    break;
+                case Imagick::ORIENTATION_RIGHTBOTTOM:
+                    $image->flopImage();
+                    $image->rotateImage('#ffffff', 90);
+                    break;
+                case Imagick::ORIENTATION_LEFTBOTTOM:
+                    $image->rotateImage('#ffffff', -90);
+                    break;
+            }
+            $image->setImageOrientation(Imagick::ORIENTATION_TOPLEFT);
+
+            if ($image->getImageAlphaChannel()) {
+                $image->setImageBackgroundColor('#ffffff');
+                $flattened = $image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+                $image->clear();
+                $image = $flattened;
+                $image->setIteratorIndex(0);
+            }
+
+            $width = $image->getImageWidth();
+            $height = $image->getImageHeight();
+            if ($width <= 0 || $height <= 0) {
+                return null;
+            }
+
+            $maxDimension = ELECTRICISTA_MAX_IMAGE_DIMENSION;
+            if (max($width, $height) > $maxDimension) {
+                $image->resizeImage($maxDimension, $maxDimension, Imagick::FILTER_LANCZOS, 1, true);
+            }
+
+            $image->stripImage();
+            $image->setImageFormat('jpeg');
+            $image->setImageCompressionQuality(ELECTRICISTA_JPEG_QUALITY);
+
+            if (!$image->writeImage($targetPath)) {
+                throw new RuntimeException('No se pudo guardar la imagen en el servidor.');
+            }
+
+            return [$image->getImageWidth(), $image->getImageHeight()];
+        } catch (ImagickException $exception) {
+            return null;
+        } finally {
+            $image->clear();
+        }
+    }
+}
+
+if (!function_exists('electricistaNormalizeImageWithGd')) {
+    function electricistaNormalizeImageWithGd(string $sourcePath, string $targetPath): ?array {
+        if (!extension_loaded('gd')) {
+            return null;
+        }
+
+        $info = @getimagesize($sourcePath);
+        if ($info === false) {
+            return null;
+        }
+
+        $contents = @file_get_contents($sourcePath);
+        if ($contents === false) {
+            return null;
+        }
+
+        $source = @imagecreatefromstring($contents);
+        if (!$source) {
+            return null;
+        }
+
+        $orientation = 0;
+        if (function_exists('exif_read_data') && ($info['mime'] ?? '') === 'image/jpeg') {
+            $exif = @exif_read_data($sourcePath);
+            $orientation = (int) ($exif['Orientation'] ?? 0);
+        }
+        switch ($orientation) {
+            case 3:
+                $source = imagerotate($source, 180, 0);
+                break;
+            case 6:
+                $source = imagerotate($source, -90, 0);
+                break;
+            case 8:
+                $source = imagerotate($source, 90, 0);
+                break;
+        }
+
+        $width = imagesx($source);
+        $height = imagesy($source);
+        $maxDimension = ELECTRICISTA_MAX_IMAGE_DIMENSION;
+        $scale = max($width, $height) > $maxDimension ? $maxDimension / max($width, $height) : 1;
+        $targetWidth = max(1, (int) round($width * $scale));
+        $targetHeight = max(1, (int) round($height * $scale));
+
+        $target = imagecreatetruecolor($targetWidth, $targetHeight);
+        $white = imagecolorallocate($target, 255, 255, 255);
+        imagefill($target, 0, 0, $white);
+        imagecopyresampled($target, $source, 0, 0, 0, 0, $targetWidth, $targetHeight, $width, $height);
+
+        $saved = imagejpeg($target, $targetPath, ELECTRICISTA_JPEG_QUALITY);
+        imagedestroy($source);
+        imagedestroy($target);
+
+        if (!$saved) {
+            throw new RuntimeException('No se pudo guardar la imagen en el servidor.');
+        }
+
+        return [$targetWidth, $targetHeight];
+    }
+}
+
+if (!function_exists('electricistaNormalizeImageToJpeg')) {
+    function electricistaNormalizeImageToJpeg(string $sourcePath, string $targetPath): ?array {
+        $dimensions = electricistaNormalizeImageWithImagick($sourcePath, $targetPath);
+        if ($dimensions !== null) {
+            return $dimensions;
+        }
+        return electricistaNormalizeImageWithGd($sourcePath, $targetPath);
+    }
+}
+
 if (!function_exists('electricistaStoreUploadedImage')) {
     function electricistaStoreUploadedImage(array $file, int $workId, string $slug, string $prefix = 'imagen'): array {
-        if (!isset($file['error']) || (int) $file['error'] !== UPLOAD_ERR_OK) {
-            throw new RuntimeException('No se recibió una imagen válida.');
+        $errorCode = (int) ($file['error'] ?? UPLOAD_ERR_NO_FILE);
+        $originalName = trim((string) ($file['name'] ?? ''));
+        if ($errorCode !== UPLOAD_ERR_OK) {
+            throw new RuntimeException(electricistaUploadErrorMessage($errorCode, $originalName));
         }
 
         if (empty($file['tmp_name']) || !is_uploaded_file($file['tmp_name'])) {
             throw new RuntimeException('La subida de imagen no es válida.');
         }
 
+        $maxMegabytes = (int) round(ELECTRICISTA_MAX_IMAGE_BYTES / 1048576);
         if (!empty($file['size']) && (int) $file['size'] > ELECTRICISTA_MAX_IMAGE_BYTES) {
-            throw new RuntimeException('La imagen excede el tamaño máximo permitido de 8 MB.');
-        }
-
-        $imageInfo = @getimagesize($file['tmp_name']);
-        if ($imageInfo === false) {
-            throw new RuntimeException('El archivo seleccionado no es una imagen válida.');
-        }
-
-        $finfo = function_exists('finfo_open') ? finfo_open(FILEINFO_MIME_TYPE) : false;
-        $mime = $finfo ? finfo_file($finfo, $file['tmp_name']) : ($imageInfo['mime'] ?? null);
-        if ($finfo) {
-            finfo_close($finfo);
-        }
-
-        $allowed = ELECTRICISTA_ALLOWED_IMAGE_MIME;
-        if (!$mime || !isset($allowed[$mime])) {
-            throw new RuntimeException('Formato de imagen no permitido. Usa JPG, PNG o WEBP.');
+            $label = $originalName !== '' ? sprintf('«%s»', $originalName) : 'La imagen';
+            throw new RuntimeException(sprintf('%s excede el tamaño máximo permitido de %d MB.', $label, $maxMegabytes));
         }
 
         $directories = electricistaWorkUploadDirectory($workId);
-        $extension = $allowed[$mime];
         $safePrefix = electricistaSlugify($prefix, 'imagen');
         $safeSlug = electricistaSlugify($slug, 'trabajo');
-        $filename = sprintf('%s-%s-%s.%s', $safePrefix, $safeSlug, bin2hex(random_bytes(6)), $extension);
+        $filename = sprintf('%s-%s-%s.jpg', $safePrefix, $safeSlug, bin2hex(random_bytes(6)));
         $absoluteTarget = $directories['absolute'] . '/' . $filename;
 
-        if (!move_uploaded_file($file['tmp_name'], $absoluteTarget)) {
-            throw new RuntimeException('No se pudo guardar la imagen en el servidor.');
+        $dimensions = electricistaNormalizeImageToJpeg($file['tmp_name'], $absoluteTarget);
+        if ($dimensions === null || !is_file($absoluteTarget)) {
+            $label = $originalName !== '' ? sprintf('«%s»', $originalName) : 'El archivo seleccionado';
+            throw new RuntimeException($label . ' no es una imagen válida o su formato no es compatible.');
         }
 
         @chmod($absoluteTarget, 0644);
 
         return [
             'relative_path' => $directories['relative'] . '/' . $filename,
-            'width' => (int) ($imageInfo[0] ?? 0),
-            'height' => (int) ($imageInfo[1] ?? 0),
-            'mime' => $mime,
+            'width' => (int) $dimensions[0],
+            'height' => (int) $dimensions[1],
+            'mime' => 'image/jpeg',
         ];
     }
 }

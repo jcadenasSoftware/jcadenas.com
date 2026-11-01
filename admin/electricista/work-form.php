@@ -212,15 +212,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $maxSortOrderStmt->execute([$workId]);
             $sortOrderBase = (int) $maxSortOrderStmt->fetchColumn();
 
+            $galleryErrors = [];
             foreach ($galleryUploads as $upload) {
                 if ((int) ($upload['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
                     continue;
                 }
+                try {
+                    $storedImage = electricistaStoreUploadedImage($upload, $workId, $resolvedSlug, 'galeria');
+                } catch (Throwable $exception) {
+                    $galleryErrors[] = $exception->getMessage();
+                    continue;
+                }
                 $sortOrderBase++;
-                $storedImage = electricistaStoreUploadedImage($upload, $workId, $resolvedSlug, 'galeria');
                 $newFiles[] = $storedImage['relative_path'];
                 $insertImage = $pdo->prepare('INSERT INTO electricista_work_images (work_id, image_path, alt_text, sort_order) VALUES (?, ?, ?, ?)');
                 $insertImage->execute([$workId, $storedImage['relative_path'], $formData['title'], $sortOrderBase]);
+            }
+
+            if ($galleryErrors !== []) {
+                throw new RuntimeException(implode(' ', $galleryErrors));
             }
 
             $updateWork = $pdo->prepare('UPDATE electricista_works SET category_id = ?, title = ?, slug = ?, short_description = ?, description = ?, location = ?, work_date = ?, cover_image = ?, cover_image_alt = ?, is_featured = ?, status = ?, published_at = ?, updated_by = ?, updated_at = NOW() WHERE id = ?');
@@ -353,7 +363,7 @@ electricistaAdminRenderHeader($pageTitle, $activeNav);
                 <label class="electricista-admin-file-label" for="cover_image">Seleccionar o cambiar imagen</label>
                 <span class="electricista-admin-file-status" data-default="Ninguna imagen seleccionada" aria-live="polite"></span>
             </div>
-            <div class="form-text">Formatos permitidos: JPG, PNG y WEBP. Tamaño máximo: 8 MB.</div>
+            <div class="form-text">Formatos: JPG, PNG, WEBP, GIF, HEIC y AVIF. Máximo 32 MB por imagen. Las fotos se optimizan y convierten a JPG automáticamente.</div>
         </div>
 
         <?php if ($existingWork && !empty($existingWork['cover_image'])): ?>
