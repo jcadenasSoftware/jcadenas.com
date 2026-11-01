@@ -15,7 +15,7 @@ if (!function_exists('electricistaAdminRenderHeader')) {
     <link rel="icon" type="image/png" href="<?= electricistaHtml(electricistaAbsoluteUrl('assets/img/electricista/favicon-32x32.png')) ?>" sizes="32x32">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="<?= electricistaHtml(siteUrl('assets/css/electricista-admin.css')) ?>">
+    <link rel="stylesheet" href="<?= electricistaHtml(siteUrl('assets/css/electricista-admin.css') . '?v=' . electricistaAssetVersion()) ?>">
 </head>
 <body class="electricista-admin-body">
 <header class="electricista-admin-topbar">
@@ -75,7 +75,7 @@ if (!function_exists('electricistaAdminRenderFooter')) {
     </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-<script src="<?= electricistaHtml(siteUrl('assets/js/electricista-admin.js')) ?>" defer></script>
+<script src="<?= electricistaHtml(siteUrl('assets/js/electricista-admin.js') . '?v=' . electricistaAssetVersion()) ?>" defer></script>
 </body>
 </html>
 <?php

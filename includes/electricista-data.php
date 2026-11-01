@@ -164,7 +164,7 @@ if (!function_exists('electricistaAdminUrl')) {
 
 if (!function_exists('electricistaAssetVersion')) {
     function electricistaAssetVersion(): string {
-        return '20260826-1';
+        return '20261101-1';
     }
 }
 
