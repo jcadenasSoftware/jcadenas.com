@@ -72,6 +72,14 @@ $formData = [
 ];
 $errorMessages = [];
 
+$isAjaxRequest = ($_POST['ajax'] ?? '') === '1';
+$respondJson = static function (int $status, array $payload): void {
+    http_response_code($status);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($payload, JSON_UNESCAPED_UNICODE);
+    exit;
+};
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $formData['title'] = trim((string) ($_POST['title'] ?? ''));
     $formData['slug'] = trim((string) ($_POST['slug'] ?? ''));
@@ -253,7 +261,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $pdo->commit();
             electricistaSetFlash('success', $existingWork ? 'Trabajo actualizado correctamente.' : 'Trabajo creado correctamente.');
-            header('Location: ' . electricistaAdminUrl('work-form.php?id=' . $workId));
+            $redirectUrl = electricistaAdminUrl('work-form.php?id=' . $workId);
+            if ($isAjaxRequest) {
+                $respondJson(200, ['ok' => true, 'work_id' => $workId, 'redirect' => $redirectUrl]);
+            }
+            header('Location: ' . $redirectUrl);
             exit;
         } catch (Throwable $exception) {
             if ($pdo->inTransaction()) {
@@ -264,6 +276,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             $errorMessages[] = $exception->getMessage() !== '' ? $exception->getMessage() : 'No fue posible guardar el trabajo.';
         }
+    }
+
+    if ($isAjaxRequest) {
+        $respondJson(422, ['ok' => false, 'errors' => $errorMessages !== [] ? $errorMessages : ['No fue posible guardar el trabajo.']]);
     }
 }
 
@@ -297,7 +313,7 @@ electricistaAdminRenderHeader($pageTitle, $activeNav);
 <?php endif; ?>
 
 <section class="electricista-admin-form-card">
-    <form method="post" enctype="multipart/form-data" class="electricista-admin-form-grid">
+    <form method="post" enctype="multipart/form-data" class="electricista-admin-form-grid" data-upload-url="<?= electricistaHtml(electricistaAdminUrl('work-image-upload.php')) ?>">
         <input type="hidden" name="csrf_token" value="<?= electricistaHtml(electricistaCsrfToken()) ?>">
 
         <div class="is-full">
@@ -416,6 +432,16 @@ electricistaAdminRenderHeader($pageTitle, $activeNav);
             </div>
         </div>
         <?php endif; ?>
+
+        <div class="is-full electricista-upload-progress" data-upload-progress hidden>
+            <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="electricista-admin-muted" data-upload-label>Preparando subida…</span>
+                <span class="electricista-admin-muted" data-upload-percent>0%</span>
+            </div>
+            <div class="progress" style="height: 10px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" data-upload-bar role="progressbar" style="width: 0%"></div>
+            </div>
+        </div>
 
         <div class="is-full d-flex gap-2 flex-wrap">
             <button class="btn btn-primary" type="submit">Guardar trabajo</button>
